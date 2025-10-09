@@ -1,5 +1,9 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/tony-siqurity-ai/cirquit-brand/main/logos/logo-horizontal.png" alt="Cirquit" width="400">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tony-siqurity-ai/cirquit-brand/main/logos/logo-horizontal-white.png">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/tony-siqurity-ai/cirquit-brand/main/logos/logo-horizontal.png">
+    <img src="https://raw.githubusercontent.com/tony-siqurity-ai/cirquit-brand/main/logos/logo-horizontal.png" alt="Cirquit" width="400">
+  </picture>
 
   <p><strong>Quantum circuits, simplified.</strong></p>
 
