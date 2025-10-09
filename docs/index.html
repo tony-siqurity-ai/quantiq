@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cirquit Documentation</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        h1 { color: #4A90E2; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>í´® Cirquit Documentation</h1>
+    <p>Quantum circuits, simplified. A developer-first quantum computing platform.</p>
+    
+    <h2>Quick Start</h2>
+    <pre><code>pip install cirquit</code></pre>
+    
+    <h2>Basic Example</h2>
+    <pre><code>from cirquit import QuantumCircuit
+
+# Create a simple circuit
+qc = QuantumCircuit(2)
+qc.h(0)
+qc.cx(0, 1)
+qc.measure_all()
+
+# Run the circuit
+result = qc.run()
+print(result)</code></pre>
+    
+    <h2>Resources</h2>
+    <ul>
+        <li><a href="https://github.com/tony-siqurity-ai/cirquit-web">GitHub Repository</a></li>
+        <li><a href="https://cirquit.dev">Main Website</a></li>
+    </ul>
+    
+    <p><small>Documentation version 0.1.0</small></p>
+</body>
+</html>
