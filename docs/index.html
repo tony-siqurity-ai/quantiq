@@ -4,45 +4,488 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cirquit Documentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-purple: #8B5CF6;
+            --primary-blue: #3B82F6;
+            --dark: #1E293B;
+            --gray: #64748B;
+            --light-gray: #F1F5F9;
+            --code-bg: #1E293B;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            max-width: 800px;
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            display: flex;
+            gap: 30px;
+            padding: 20px;
+            overflow-x: auto;
+        }
+
+        .nav-container a {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: color 0.3s;
+        }
+
+        .nav-container a:hover {
+            color: var(--primary-purple);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--dark);
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            margin: 40px 0 20px;
+            color: var(--dark);
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        /* Code Blocks */
+        pre {
+            background: var(--code-bg);
+            color: #E2E8F0;
+            padding: 25px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 25px 0;
+            font-size: 0.95rem;
             line-height: 1.6;
         }
-        h1 { color: #4A90E2; }
-        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; }
-        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+
+        code {
+            font-family: 'Courier New', monospace;
+        }
+
+        p code {
+            background: var(--light-gray);
+            color: var(--primary-purple);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .card p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* API Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        th {
+            background: var(--light-gray);
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #e2e8f0;
+            color: var(--gray);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Links */
+        a {
+            color: var(--primary-purple);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin: 20px 10px 20px 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+            text-decoration: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        footer a {
+            color: var(--primary-purple);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.8rem; }
+            h3 { font-size: 1.4rem; }
+            .subtitle { font-size: 1.1rem; }
+        }
     </style>
 </head>
 <body>
-    <h1>��� Cirquit Documentation</h1>
-    <p>Quantum circuits, simplified. A developer-first quantum computing platform.</p>
-    
-    <h2>Quick Start</h2>
-    <pre><code>pip install cirquit</code></pre>
-    
-    <h2>Basic Example</h2>
-    <pre><code>from cirquit import QuantumCircuit
+    <!-- Header -->
+    <header>
+        <img src="../icon-192.png" alt="Cirquit Logo" class="logo">
+        <h1>Cirquit Documentation</h1>
+        <p class="subtitle">Quantum circuits, simplified. A developer-first quantum computing platform.</p>
+    </header>
 
-# Create a simple circuit
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#installation">Installation</a>
+            <a href="#quick-start">Quick Start</a>
+            <a href="#api">API Reference</a>
+            <a href="#examples">Examples</a>
+            <a href="https://cirquit.dev" target="_blank">Main Site</a>
+            <a href="https://github.com/tony-siqurity-ai/cirquit-web" target="_blank">GitHub</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <!-- Installation -->
+        <section id="installation">
+            <h2>📦 Installation</h2>
+            <p>Install Cirquit using pip. Requires Python 3.11 or higher.</p>
+            <pre><code>pip install cirquit</code></pre>
+
+            <h3>Requirements</h3>
+            <ul style="margin-left: 20px; color: var(--gray); line-height: 2;">
+                <li>Python 3.11+</li>
+                <li>NumPy (installed automatically)</li>
+            </ul>
+        </section>
+
+        <!-- Quick Start -->
+        <section id="quick-start">
+            <h2>🚀 Quick Start</h2>
+            <p>Create your first quantum circuit in under a minute:</p>
+
+            <pre><code>from cirquit import QuantumCircuit
+
+# Create a Bell state (quantum entanglement)
 qc = QuantumCircuit(2)
+qc.h(0)           # Apply Hadamard gate to qubit 0
+qc.cx(0, 1)       # Apply CNOT gate
+qc.measure_all()  # Measure all qubits
+
+# Run the circuit
+result = qc.run(shots=1000)
+print(result)
+# Output: QuantumCircuit(2 qubits, 3 gates)</code></pre>
+
+            <p>That's it! You just created quantum entanglement. The Bell state creates perfect correlation between two qubits.</p>
+        </section>
+
+        <!-- Core Concepts -->
+        <section id="concepts">
+            <h2>💡 Core Concepts</h2>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Quantum Circuits</h4>
+                    <p>A sequence of quantum gates applied to qubits. Build circuits using an intuitive Python API.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Quantum Gates</h4>
+                    <p>Operations that manipulate qubits. Cirquit supports all common single and two-qubit gates.</p>
+                </div>
+
+                <div class="card">
+                    <h4>Measurement</h4>
+                    <p>Observing quantum states collapses them to classical bits. Run multiple shots to see probability distributions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Reference -->
+        <section id="api">
+            <h2>📚 API Reference</h2>
+
+            <h3>QuantumCircuit</h3>
+            <p>The main class for building quantum circuits.</p>
+
+            <pre><code>from cirquit import QuantumCircuit
+
+qc = QuantumCircuit(num_qubits)</code></pre>
+
+            <h4>Single-Qubit Gates</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>h(qubit)</code></td>
+                        <td>Hadamard gate - creates superposition</td>
+                        <td><code>qc.h(0)</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>x(qubit)</code></td>
+                        <td>Pauli-X gate - quantum NOT</td>
+                        <td><code>qc.x(1)</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>y(qubit)</code></td>
+                        <td>Pauli-Y gate</td>
+                        <td><code>qc.y(0)</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>z(qubit)</code></td>
+                        <td>Pauli-Z gate - phase flip</td>
+                        <td><code>qc.z(2)</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Two-Qubit Gates</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>cx(control, target)</code></td>
+                        <td>CNOT gate - controlled-NOT</td>
+                        <td><code>qc.cx(0, 1)</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Measurement</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>measure_all()</code></td>
+                        <td>Measure all qubits</td>
+                        <td><code>qc.measure_all()</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Execution</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>run(shots=1000)</code></td>
+                        <td>Execute circuit with specified number of shots</td>
+                        <td><code>result = qc.run(shots=2048)</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Examples -->
+        <section id="examples">
+            <h2>📖 Examples</h2>
+
+            <h3>Bell State (Quantum Entanglement)</h3>
+            <p>Create perfect correlation between two qubits:</p>
+            <pre><code>qc = QuantumCircuit(2)
 qc.h(0)
 qc.cx(0, 1)
 qc.measure_all()
 
-# Run the circuit
-result = qc.run()
-print(result)</code></pre>
-    
-    <h2>Resources</h2>
-    <ul>
-        <li><a href="https://github.com/tony-siqurity-ai/cirquit-web">GitHub Repository</a></li>
-        <li><a href="https://cirquit.dev">Main Website</a></li>
-    </ul>
-    
-    <p><small>Documentation version 0.1.0</small></p>
+result = qc.run(shots=1000)
+# Result: ~50% |00⟩ and ~50% |11⟩</code></pre>
+
+            <h3>GHZ State (3-Qubit Entanglement)</h3>
+            <p>Extend entanglement to three qubits:</p>
+            <pre><code>qc = QuantumCircuit(3)
+qc.h(0)
+qc.cx(0, 1)
+qc.cx(1, 2)
+qc.measure_all()
+
+result = qc.run(shots=1000)
+# Result: ~50% |000⟩ and ~50% |111⟩</code></pre>
+
+            <h3>Superposition</h3>
+            <p>Create equal probability of measuring 0 or 1:</p>
+            <pre><code>qc = QuantumCircuit(1)
+qc.h(0)  # Hadamard creates superposition
+qc.measure_all()
+
+result = qc.run(shots=1000)
+# Result: ~50% |0⟩ and ~50% |1⟩</code></pre>
+
+            <h3>Method Chaining</h3>
+            <p>Build circuits fluently with method chaining:</p>
+            <pre><code>qc = QuantumCircuit(3)
+qc.h(0).h(1).h(2).cx(0, 1).cx(1, 2).measure_all()
+
+result = qc.run(shots=1000)</code></pre>
+        </section>
+
+        <!-- Next Steps -->
+        <section id="next-steps">
+            <h2>🎯 Next Steps</h2>
+            <p>Ready to dive deeper? Check out these resources:</p>
+
+            <a href="https://github.com/tony-siqurity-ai/cirquit-web/tree/main/examples" target="_blank" class="cta-button">View More Examples</a>
+            <a href="https://github.com/tony-siqurity-ai/cirquit-web" target="_blank" class="cta-button">GitHub Repository</a>
+            <a href="https://pypi.org/project/cirquit/" target="_blank" class="cta-button">PyPI Package</a>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Cirquit v1.0.1 - MIT Licensed</p>
+        <p><a href="https://cirquit.dev">cirquit.dev</a> • <a href="https://github.com/tony-siqurity-ai/cirquit-web">GitHub</a> • <a href="https://pypi.org/project/cirquit/">PyPI</a></p>
+        <p style="margin-top: 20px; opacity: 0.7;">Made with ⚛️ by the Cirquit team</p>
+    </footer>
 </body>
 </html>
