@@ -231,6 +231,14 @@ Special thanks to early adopters and contributors!
 
 ---
 
+## 🗺️ Roadmap
+
+See our [public roadmap](https://github.com/users/tony-siqurity-ai/projects/1) for upcoming features and Cloud API development.
+
+Want to influence what we build? [Open a discussion](https://github.com/tony-siqurity-ai/cirquit-web/discussions)!
+
+---
+
 <div align="center">
 
 **⭐ Star us on GitHub if you find Cirquit useful!**
