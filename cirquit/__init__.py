@@ -1,17 +1,10 @@
 """
-Cirquit - Quantum circuits, simplified
+Cirquit - Quantum circuits, simplified.
+A developer-first quantum computing platform.
 """
 
-__version__ = "1.0.0"
-__author__ = "Cirquit Team"
-__email__ = "hello@cirquit.io"
+__version__ = "1.0.1"
 
-from .circuit import QuantumCircuit
-from .gates import GateType
-from .results import CircuitResult
+from .cirquit import QuantumCircuit
 
-__all__ = [
-    "QuantumCircuit",
-    "GateType",
-    "CircuitResult",
-]
+__all__ = ['QuantumCircuit', '__version__']
