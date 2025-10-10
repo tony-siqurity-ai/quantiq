@@ -1,6 +1,7 @@
 """
 Main QuantumCircuit class for quantIQ
 """
+
 import numpy as np
 from typing import List, Tuple, Optional
 from .gates import H, X, Y, Z, CX
@@ -27,48 +28,48 @@ class QuantumCircuit:
         self._simulator: Optional[Simulator] = None
         self._drawer = CircuitDrawer(num_qubits)
 
-    def h(self, qubit: int) -> 'QuantumCircuit':
+    def h(self, qubit: int) -> "QuantumCircuit":
         """Apply Hadamard gate to qubit."""
         self._validate_qubit(qubit)
-        self.gates.append(('H', qubit))
-        self._drawer.add_gate('H', qubit)
+        self.gates.append(("H", qubit))
+        self._drawer.add_gate("H", qubit)
         return self
 
-    def x(self, qubit: int) -> 'QuantumCircuit':
+    def x(self, qubit: int) -> "QuantumCircuit":
         """Apply Pauli-X (NOT) gate to qubit."""
         self._validate_qubit(qubit)
-        self.gates.append(('X', qubit))
-        self._drawer.add_gate('X', qubit)
+        self.gates.append(("X", qubit))
+        self._drawer.add_gate("X", qubit)
         return self
 
-    def y(self, qubit: int) -> 'QuantumCircuit':
+    def y(self, qubit: int) -> "QuantumCircuit":
         """Apply Pauli-Y gate to qubit."""
         self._validate_qubit(qubit)
-        self.gates.append(('Y', qubit))
-        self._drawer.add_gate('Y', qubit)
+        self.gates.append(("Y", qubit))
+        self._drawer.add_gate("Y", qubit)
         return self
 
-    def z(self, qubit: int) -> 'QuantumCircuit':
+    def z(self, qubit: int) -> "QuantumCircuit":
         """Apply Pauli-Z gate to qubit."""
         self._validate_qubit(qubit)
-        self.gates.append(('Z', qubit))
-        self._drawer.add_gate('Z', qubit)
+        self.gates.append(("Z", qubit))
+        self._drawer.add_gate("Z", qubit)
         return self
 
-    def cx(self, control: int, target: int) -> 'QuantumCircuit':
+    def cx(self, control: int, target: int) -> "QuantumCircuit":
         """Apply CNOT (Controlled-X) gate."""
         self._validate_qubit(control)
         self._validate_qubit(target)
         if control == target:
             raise ValueError("Control and target qubits must be different")
-        self.gates.append(('CX', control, target))
-        self._drawer.add_gate('CX', control, target)
+        self.gates.append(("CX", control, target))
+        self._drawer.add_gate("CX", control, target)
         return self
 
-    def measure_all(self) -> 'QuantumCircuit':
+    def measure_all(self) -> "QuantumCircuit":
         """Measure all qubits in the computational basis."""
-        self.gates.append(('MEASURE_ALL',))
-        self._drawer.add_gate('MEASURE_ALL')
+        self.gates.append(("MEASURE_ALL",))
+        self._drawer.add_gate("MEASURE_ALL")
         return self
 
     def _validate_qubit(self, qubit: int) -> None:
@@ -96,17 +97,17 @@ class QuantumCircuit:
         for gate in self.gates:
             gate_type = gate[0]
 
-            if gate_type == 'H':
+            if gate_type == "H":
                 simulator.apply_gate(H, gate[1])
-            elif gate_type == 'X':
+            elif gate_type == "X":
                 simulator.apply_gate(X, gate[1])
-            elif gate_type == 'Y':
+            elif gate_type == "Y":
                 simulator.apply_gate(Y, gate[1])
-            elif gate_type == 'Z':
+            elif gate_type == "Z":
                 simulator.apply_gate(Z, gate[1])
-            elif gate_type == 'CX':
+            elif gate_type == "CX":
                 simulator.apply_cx(gate[1], gate[2])
-            elif gate_type == 'MEASURE_ALL':
+            elif gate_type == "MEASURE_ALL":
                 # Measurement is handled after all gates
                 pass
 
@@ -128,15 +129,15 @@ class QuantumCircuit:
         for gate in self.gates:
             gate_type = gate[0]
 
-            if gate_type == 'H':
+            if gate_type == "H":
                 simulator.apply_gate(H, gate[1])
-            elif gate_type == 'X':
+            elif gate_type == "X":
                 simulator.apply_gate(X, gate[1])
-            elif gate_type == 'Y':
+            elif gate_type == "Y":
                 simulator.apply_gate(Y, gate[1])
-            elif gate_type == 'Z':
+            elif gate_type == "Z":
                 simulator.apply_gate(Z, gate[1])
-            elif gate_type == 'CX':
+            elif gate_type == "CX":
                 simulator.apply_cx(gate[1], gate[2])
 
         return simulator.get_statevector()
@@ -157,4 +158,4 @@ class QuantumCircuit:
         return self.draw()
 
 
-__all__ = ['QuantumCircuit']
+__all__ = ["QuantumCircuit"]

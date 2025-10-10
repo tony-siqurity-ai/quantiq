@@ -1,6 +1,7 @@
 """
 Quantum circuit execution results
 """
+
 from typing import Dict, List, Tuple
 from collections import Counter
 
@@ -51,10 +52,7 @@ class Result:
         Returns:
             Dictionary mapping outcomes to probabilities
         """
-        return {
-            outcome: count / self.shots
-            for outcome, count in self.counts.items()
-        }
+        return {outcome: count / self.shots for outcome, count in self.counts.items()}
 
     def most_common(self, n: int = 5) -> List[Tuple[str, int]]:
         """
@@ -81,7 +79,7 @@ class Result:
         """
         return self.counts.get(outcome, 0)
 
-    def expectation_value(self, observable: str = 'Z') -> float:
+    def expectation_value(self, observable: str = "Z") -> float:
         """
         Calculate expectation value for a given observable.
 
@@ -91,7 +89,7 @@ class Result:
         Returns:
             Expectation value
         """
-        if observable != 'Z':
+        if observable != "Z":
             raise NotImplementedError("Only Z observable supported currently")
 
         expectation = 0.0
@@ -112,16 +110,18 @@ class Result:
             Dictionary representation of the result
         """
         return {
-            'counts': self.counts,
-            'shots': self.shots,
-            'num_qubits': self.num_qubits,
-            'probabilities': self.probabilities()
+            "counts": self.counts,
+            "shots": self.shots,
+            "num_qubits": self.num_qubits,
+            "probabilities": self.probabilities(),
         }
 
     def __repr__(self) -> str:
         """String representation of Result."""
         top_outcomes = self.most_common(3)
-        outcomes_str = ', '.join(f"'{outcome}': {count}" for outcome, count in top_outcomes)
+        outcomes_str = ", ".join(
+            f"'{outcome}': {count}" for outcome, count in top_outcomes
+        )
         return f"Result(shots={self.shots}, top_outcomes={{{outcomes_str}, ...}})"
 
     def __str__(self) -> str:
@@ -132,13 +132,13 @@ class Result:
         for outcome, count in self.most_common(10):
             prob = count / self.shots
             bar_length = int(prob * 40)
-            bar = '█' * bar_length
+            bar = "█" * bar_length
             lines.append(f"|{outcome}⟩: {count:4d} ({prob:6.2%}) {bar}")
 
         if len(self.counts) > 10:
             lines.append(f"... and {len(self.counts) - 10} more outcomes")
 
-        return '\n'.join(lines)
+        return "\n".join(lines)
 
 
-__all__ = ['Result']
+__all__ = ["Result"]

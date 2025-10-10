@@ -1,6 +1,7 @@
 """
 Circuit and result visualization utilities
 """
+
 from typing import List, Tuple, Dict, Optional
 from .results import Result
 
@@ -47,17 +48,17 @@ class CircuitDrawer:
         for gate in self.gates:
             gate_type = gate[0]
 
-            if gate_type in ['H', 'X', 'Y', 'Z']:
+            if gate_type in ["H", "X", "Y", "Z"]:
                 # Single-qubit gates
                 qubit = gate[1]
                 self._add_single_qubit_gate(wires, gate_type, qubit)
 
-            elif gate_type == 'CX':
+            elif gate_type == "CX":
                 # Two-qubit gate
                 control, target = gate[1], gate[2]
                 self._add_cx_gate(wires, control, target)
 
-            elif gate_type == 'MEASURE_ALL':
+            elif gate_type == "MEASURE_ALL":
                 # Measurement
                 self._add_measurement(wires)
 
@@ -65,11 +66,11 @@ class CircuitDrawer:
         for i in range(self.num_qubits):
             wires[i] += "─"
 
-        return '\n'.join(wires)
+        return "\n".join(wires)
 
     def _empty_circuit(self) -> str:
         """Draw empty circuit."""
-        return '\n'.join([f"q{i}: ─────" for i in range(self.num_qubits)])
+        return "\n".join([f"q{i}: ─────" for i in range(self.num_qubits)])
 
     def _add_single_qubit_gate(
         self, wires: List[str], gate_type: str, qubit: int
@@ -90,9 +91,7 @@ class CircuitDrawer:
             if i != qubit:
                 wires[i] += "─" * gate_len
 
-    def _add_cx_gate(
-        self, wires: List[str], control: int, target: int
-    ) -> None:
+    def _add_cx_gate(self, wires: List[str], control: int, target: int) -> None:
         """Add CNOT gate to diagram."""
         # Pad all wires to align
         max_len = max(len(w) for w in wires)
@@ -140,10 +139,7 @@ class ResultVisualizer:
         Returns:
             String representation of histogram
         """
-        lines = [
-            f"Measurement Results ({result.shots} shots)",
-            "=" * 60
-        ]
+        lines = [f"Measurement Results ({result.shots} shots)", "=" * 60]
 
         # Get top outcomes
         top_outcomes = result.most_common(max_outcomes)
@@ -157,7 +153,7 @@ class ResultVisualizer:
 
             # Scale bar to 40 characters max
             bar_length = int((count / max_count) * 40)
-            bar = '█' * bar_length
+            bar = "█" * bar_length
 
             # Format line
             line = f"|{outcome}⟩: {count:5d} ({prob:6.2%}) {bar}"
@@ -170,7 +166,7 @@ class ResultVisualizer:
 
         lines.append("=" * 60)
 
-        return '\n'.join(lines)
+        return "\n".join(lines)
 
     @staticmethod
     def plot_probabilities(result: Result, max_outcomes: int = 10) -> str:
@@ -184,38 +180,33 @@ class ResultVisualizer:
         Returns:
             String representation of probability plot
         """
-        lines = [
-            f"Probability Distribution",
-            "=" * 60
-        ]
+        lines = [f"Probability Distribution", "=" * 60]
 
         probabilities = result.probabilities()
 
         # Sort by probability
-        sorted_probs = sorted(
-            probabilities.items(),
-            key=lambda x: x[1],
-            reverse=True
-        )[:max_outcomes]
+        sorted_probs = sorted(probabilities.items(), key=lambda x: x[1], reverse=True)[
+            :max_outcomes
+        ]
 
         # Create bars
         for outcome, prob in sorted_probs:
             # Scale bar to 50 characters
             bar_length = int(prob * 50)
-            bar = '▓' * bar_length
+            bar = "▓" * bar_length
 
             line = f"|{outcome}⟩: {prob:6.2%} {bar}"
             lines.append(line)
 
         lines.append("=" * 60)
 
-        return '\n'.join(lines)
+        return "\n".join(lines)
 
     @staticmethod
     def show_state_vector(
-        statevector: 'np.ndarray',  # type: ignore
+        statevector: "np.ndarray",  # type: ignore
         num_qubits: int,
-        threshold: float = 0.01
+        threshold: float = 0.01,
     ) -> str:
         """
         Display statevector amplitudes.
@@ -228,16 +219,13 @@ class ResultVisualizer:
         Returns:
             String representation of statevector
         """
-        lines = [
-            "Statevector Amplitudes",
-            "=" * 60
-        ]
+        lines = ["Statevector Amplitudes", "=" * 60]
 
         for i, amplitude in enumerate(statevector):
             prob = abs(amplitude) ** 2
 
             if prob >= threshold:
-                bitstring = format(i, f'0{num_qubits}b')
+                bitstring = format(i, f"0{num_qubits}b")
                 phase = 0 if amplitude.real >= 0 else 180
 
                 # Format amplitude
@@ -254,7 +242,7 @@ class ResultVisualizer:
 
         lines.append("=" * 60)
 
-        return '\n'.join(lines)
+        return "\n".join(lines)
 
 
 def draw_circuit(num_qubits: int, gates: List[Tuple]) -> str:
@@ -274,7 +262,7 @@ def draw_circuit(num_qubits: int, gates: List[Tuple]) -> str:
     return drawer.draw()
 
 
-def plot_results(result: Result, style: str = 'histogram') -> str:
+def plot_results(result: Result, style: str = "histogram") -> str:
     """
     Plot measurement results.
 
@@ -287,17 +275,12 @@ def plot_results(result: Result, style: str = 'histogram') -> str:
     """
     visualizer = ResultVisualizer()
 
-    if style == 'histogram':
+    if style == "histogram":
         return visualizer.plot_histogram(result)
-    elif style == 'probability':
+    elif style == "probability":
         return visualizer.plot_probabilities(result)
     else:
         raise ValueError(f"Unknown style: {style}")
 
 
-__all__ = [
-    'CircuitDrawer',
-    'ResultVisualizer',
-    'draw_circuit',
-    'plot_results'
-]
+__all__ = ["CircuitDrawer", "ResultVisualizer", "draw_circuit", "plot_results"]

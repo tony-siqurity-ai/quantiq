@@ -1,6 +1,7 @@
 """
 Quantum circuit simulator using statevector representation
 """
+
 import numpy as np
 from typing import List, Tuple, Dict
 from .results import Result
@@ -31,7 +32,7 @@ class Simulator:
             )
 
         self.num_qubits = num_qubits
-        self.num_states = 2 ** num_qubits
+        self.num_states = 2**num_qubits
         self.statevector = self._initialize_statevector()
 
     def _initialize_statevector(self) -> np.ndarray:
@@ -157,16 +158,12 @@ class Simulator:
         probabilities /= np.sum(probabilities)
 
         # Sample from probability distribution
-        outcomes = np.random.choice(
-            self.num_states,
-            size=shots,
-            p=probabilities
-        )
+        outcomes = np.random.choice(self.num_states, size=shots, p=probabilities)
 
         # Convert to bitstrings and count
         counts: Dict[str, int] = {}
         for outcome in outcomes:
-            bitstring = format(outcome, f'0{self.num_qubits}b')
+            bitstring = format(outcome, f"0{self.num_qubits}b")
             counts[bitstring] = counts.get(bitstring, 0) + 1
 
         return Result(counts=counts, shots=shots, num_qubits=self.num_qubits)
@@ -194,4 +191,4 @@ class Simulator:
         return f"Simulator(num_qubits={self.num_qubits})"
 
 
-__all__ = ['Simulator']
+__all__ = ["Simulator"]

@@ -11,10 +11,10 @@ from .simulator import Simulator
 from .visualization import draw_circuit, plot_results
 
 __all__ = [
-    'QuantumCircuit',
-    'Result',
-    'Simulator',
-    'draw_circuit',
-    'plot_results',
-    '__version__'
+    "QuantumCircuit",
+    "Result",
+    "Simulator",
+    "draw_circuit",
+    "plot_results",
+    "__version__",
 ]
