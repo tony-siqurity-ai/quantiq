@@ -552,11 +552,12 @@
             <p>Try adjusting your search or filter to find what you're looking for.</p>
         </div>
 
-        <div class="newsletter">
+         <div class="newsletter">
             <h2>Stay Updated</h2>
             <p>Get weekly quantum computing insights delivered to your inbox</p>
             <form class="newsletter-form" action="https://formspree.io/f/mnnggjwr" method="POST">
-                <input type="email" placeholder="your@email.com" required>
+                <input type="email" name="email" placeholder="your@email.com" required>
+                <input type="hidden" name="_subject" value="New Cirquit Blog Subscriber">
                 <button type="submit">Subscribe</button>
             </form>
         </div>
