@@ -120,6 +120,10 @@
             transition: all 0.3s;
         }
         
+        .search-box input::placeholder {
+            color: rgba(167, 139, 250, 0.5);
+        }
+        
         .search-box input:focus {
             outline: none;
             border-color: rgba(168, 85, 247, 0.6);
@@ -204,6 +208,8 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 20px;
         }
         
         .section-header h2 {
@@ -214,6 +220,7 @@
         .categories {
             display: flex;
             gap: 12px;
+            flex-wrap: wrap;
         }
         
         .category-pill {
@@ -248,6 +255,10 @@
             padding: 32px;
             transition: all 0.3s;
             cursor: pointer;
+        }
+        
+        .post-card.hidden {
+            display: none;
         }
         
         .post-card:hover {
@@ -312,6 +323,16 @@
         .read-more:hover {
             gap: 12px;
             color: #ec4899;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #a78bfa;
+        }
+        
+        .no-results.hidden {
+            display: none;
         }
         
         /* Newsletter */
@@ -425,7 +446,7 @@
         <h2>Learn Quantum Computing</h2>
         <p>Tutorials, insights, and updates from the Cirquit team</p>
         <div class="search-box">
-            <input type="text" placeholder="Search articles...">
+            <input type="text" id="searchInput" placeholder="Search articles...">
             <span class="search-icon">Ì¥ç</span>
         </div>
     </div>
@@ -452,15 +473,18 @@
         <div class="section-header">
             <h2>Latest Posts</h2>
             <div class="categories">
-                <span class="category-pill active">All</span>
-                <span class="category-pill">Tutorials</span>
-                <span class="category-pill">Technical</span>
+                <span class="category-pill active" data-category="all">All</span>
+                <span class="category-pill" data-category="tutorial">Tutorials</span>
+                <span class="category-pill" data-category="technical">Technical</span>
+                <span class="category-pill" data-category="algorithms">Algorithms</span>
+                <span class="category-pill" data-category="community">Community</span>
+                <span class="category-pill" data-category="product">Product</span>
             </div>
         </div>
 
         <!-- Posts Grid -->
-        <div class="posts-grid">
-            <article class="post-card">
+        <div class="posts-grid" id="postsGrid">
+            <article class="post-card" data-category="tutorial" data-title="Your First Quantum Circuit in 5 Minutes" data-description="A beginner-friendly guide to creating your first quantum circuit. No quantum physics degree required!">
                 <span class="post-icon">Ì≥ö</span>
                 <span class="post-category">Tutorial</span>
                 <div class="post-meta">
@@ -472,7 +496,7 @@
                 <a href="#" class="read-more">Read More ‚Üí</a>
             </article>
 
-            <article class="post-card">
+            <article class="post-card" data-category="technical" data-title="How We Built a Quantum Simulator in Python" data-description="Deep dive into the architecture and optimization techniques behind Cirquit's simulator.">
                 <span class="post-icon">‚öôÔ∏è</span>
                 <span class="post-category">Technical</span>
                 <div class="post-meta">
@@ -484,8 +508,8 @@
                 <a href="#" class="read-more">Read More ‚Üí</a>
             </article>
 
-            <article class="post-card">
-                <span class="post-icon">ÔøΩÔøΩ</span>
+            <article class="post-card" data-category="algorithms" data-title="Quantum Algorithms Explained: Grover's Search" data-description="Understand how Grover's algorithm achieves quadratic speedup for database search.">
+                <span class="post-icon">Ì¥ç</span>
                 <span class="post-category">Algorithms</span>
                 <div class="post-meta">
                     <span>Oct 12, 2025</span>
@@ -496,7 +520,7 @@
                 <a href="#" class="read-more">Read More ‚Üí</a>
             </article>
 
-            <article class="post-card">
+            <article class="post-card" data-category="community" data-title="Community Spotlight: Amazing Circuits" data-description="Featuring incredible quantum circuits created by the Cirquit community this week.">
                 <span class="post-icon">‚ú®</span>
                 <span class="post-category">Community</span>
                 <div class="post-meta">
@@ -508,7 +532,7 @@
                 <a href="#" class="read-more">Read More ‚Üí</a>
             </article>
 
-            <article class="post-card">
+            <article class="post-card" data-category="tutorial" data-title="Quantum Entanglement for Beginners" data-description="Learn about quantum entanglement and create your first Bell state with Cirquit.">
                 <span class="post-icon">Ìæì</span>
                 <span class="post-category">Tutorial</span>
                 <div class="post-meta">
@@ -520,7 +544,7 @@
                 <a href="#" class="read-more">Read More ‚Üí</a>
             </article>
 
-            <article class="post-card">
+            <article class="post-card" data-category="product" data-title="Product Roadmap: Q4 2025" data-description="What's coming next for Cirquit: cloud execution, hardware backends, and more.">
                 <span class="post-icon">Ì∫Ä</span>
                 <span class="post-category">Product</span>
                 <div class="post-meta">
@@ -533,11 +557,17 @@
             </article>
         </div>
 
+        <!-- No Results Message -->
+        <div class="no-results hidden" id="noResults">
+            <h3>No posts found</h3>
+            <p>Try adjusting your search or filter to find what you're looking for.</p>
+        </div>
+
         <!-- Newsletter -->
         <div class="newsletter">
             <h2>Stay Updated</h2>
             <p>Get weekly quantum computing insights delivered to your inbox</p>
-            <form class="newsletter-form">
+            <form class="newsletter-form" onsubmit="return false;">
                 <input type="email" placeholder="your@email.com" required>
                 <button type="submit">Subscribe</button>
             </form>
@@ -553,5 +583,70 @@
         </div>
         <p>&copy; 2025 Cirquit. Built with quantum love. ‚öõÔ∏è</p>
     </div>
+
+    <script>
+        // Get elements
+        const searchInput = document.getElementById('searchInput');
+        const postsGrid = document.getElementById('postsGrid');
+        const noResults = document.getElementById('noResults');
+        const categoryPills = document.querySelectorAll('.category-pill');
+        const postCards = document.querySelectorAll('.post-card');
+
+        let currentCategory = 'all';
+        let currentSearch = '';
+
+        // Search functionality
+        searchInput.addEventListener('input', (e) => {
+            currentSearch = e.target.value.toLowerCase();
+            filterPosts();
+        });
+
+        // Category filter functionality
+        categoryPills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                // Update active state
+                categoryPills.forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+                
+                // Update current category
+                currentCategory = pill.getAttribute('data-category');
+                filterPosts();
+            });
+        });
+
+        // Filter posts based on search and category
+        function filterPosts() {
+            let visibleCount = 0;
+
+            postCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                const title = card.getAttribute('data-title').toLowerCase();
+                const description = card.getAttribute('data-description').toLowerCase();
+
+                // Check if matches category
+                const categoryMatch = currentCategory === 'all' || category === currentCategory;
+                
+                // Check if matches search
+                const searchMatch = currentSearch === '' || 
+                                  title.includes(currentSearch) || 
+                                  description.includes(currentSearch);
+
+                // Show/hide card
+                if (categoryMatch && searchMatch) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            // Show/hide no results message
+            if (visibleCount === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+    </script>
 </body>
 </html>
