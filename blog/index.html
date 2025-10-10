@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cirquit Blog - Quantum Computing Insights</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+        header { text-align: center; margin-bottom: 60px; }
+        h1 { font-size: 48px; background: linear-gradient(135deg, #a855f7, #ec4899); 
+             -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+             margin-bottom: 10px; }
+        .subtitle { color: #a78bfa; font-size: 18px; }
+        .posts { display: grid; gap: 30px; }
+        .post {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s;
+        }
+        .post:hover {
+            border-color: rgba(168, 85, 247, 0.5);
+            transform: translateY(-2px);
+        }
+        .post-meta {
+            display: flex;
+            gap: 20px;
+            color: #a78bfa;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        .post h2 { color: #fff; margin-bottom: 15px; font-size: 28px; }
+        .post h2 a { color: inherit; text-decoration: none; }
+        .post h2 a:hover { color: #a855f7; }
+        .excerpt { color: #cbd5e1; margin-bottom: 20px; }
+        .read-more {
+            display: inline-block;
+            color: #a855f7;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .read-more:hover { color: #ec4899; }
+        .category {
+            display: inline-block;
+            background: rgba(168, 85, 247, 0.2);
+            color: #a78bfa;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Cirquit Blog</h1>
+            <p class="subtitle">Quantum computing insights, tutorials, and updates</p>
+        </header>
+
+        <div class="posts">
+            <!-- Blog posts will be listed here -->
+            <article class="post">
+                <div class="post-meta">
+                    <span>Ì≥Ö October 9, 2025</span>
+                    <span>Ì±§ Tony Rossi</span>
+                    <span>‚è±Ô∏è 5 min read</span>
+                </div>
+                <span class="category">Announcements</span>
+                <h2><a href="posts/introducing-cirquit-v1-1-0.html">Introducing Cirquit v1.1.0: Complete Quantum Simulator</a></h2>
+                <p class="excerpt">
+                    Today we're excited to launch Cirquit v1.1.0 with a full-featured quantum simulator. 
+                    Learn about the new features and what's coming next.
+                </p>
+                <a href="posts/introducing-cirquit-v1-1-0.html" class="read-more">Read More ‚Üí</a>
+            </article>
+        </div>
+    </div>
+</body>
+</html>
