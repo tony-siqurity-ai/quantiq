@@ -5,7 +5,6 @@ Quantum gate definitions for quantIQ
 import numpy as np
 
 # Single-qubit gates
-
 # Hadamard gate
 H = np.array([[1, 1], [1, -1]], dtype=complex) / np.sqrt(2)
 
@@ -28,7 +27,6 @@ T = np.array([[1, 0], [0, np.exp(1j * np.pi / 4)]], dtype=complex)
 I = np.array([[1, 0], [0, 1]], dtype=complex)
 
 # Two-qubit gates
-
 # CNOT gate (controlled-NOT)
 # Basis order: |00⟩, |01⟩, |10⟩, |11⟩
 CX = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 0, 1], [0, 0, 1, 0]], dtype=complex)
@@ -41,8 +39,6 @@ SWAP = np.array([[1, 0, 0, 0], [0, 0, 1, 0], [0, 1, 0, 0], [0, 0, 0, 1]], dtype=
 
 
 # Rotation gates
-
-
 def rx(theta: float) -> np.ndarray:
     """
     Rotation around X-axis.
@@ -54,4 +50,35 @@ def rx(theta: float) -> np.ndarray:
         2x2 unitary matrix
     """
     c = np.cos(theta / 2)
-    s = np
+    s = np.sin(theta / 2)
+    return np.array([[c, -1j * s], [-1j * s, c]], dtype=complex)
+
+
+def ry(theta: float) -> np.ndarray:
+    """
+    Rotation around Y-axis.
+
+    Args:
+        theta: Rotation angle in radians
+
+    Returns:
+        2x2 unitary matrix
+    """
+    c = np.cos(theta / 2)
+    s = np.sin(theta / 2)
+    return np.array([[c, -s], [s, c]], dtype=complex)
+
+
+def rz(theta: float) -> np.ndarray:
+    """
+    Rotation around Z-axis.
+
+    Args:
+        theta: Rotation angle in radians
+
+    Returns:
+        2x2 unitary matrix
+    """
+    return np.array(
+        [[np.exp(-1j * theta / 2), 0], [0, np.exp(1j * theta / 2)]], dtype=complex
+    )
