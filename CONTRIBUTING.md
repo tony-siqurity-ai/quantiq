@@ -1,6 +1,6 @@
-# Contributing to Cirquit
+# Contributing to quantIQ
 
-Thank you for your interest in contributing to Cirquit! 🎉
+Thank you for your interest in contributing to quantIQ! 🎉
 
 We're building the future of quantum computing, and we'd love your help. Whether you're fixing bugs, adding features, improving documentation, or helping others in the community, every contribution matters.
 
@@ -34,20 +34,20 @@ This project adheres to a Code of Conduct that we expect all contributors to fol
 Found a bug? Help us fix it!
 
 **Before submitting:**
-1. Check if the bug has already been reported in [Issues](https://github.com/cirquit/cirquit/issues)
+1. Check if the bug has already been reported in [Issues](https://github.com/quantiq/quantiq/issues)
 2. Try the latest version from `main` branch
 3. Verify it's actually a bug, not expected behavior
 
 **When submitting:**
 - Use our [bug report template](.github/ISSUE_TEMPLATE/bug_report.md)
 - Include a minimal reproducible example
-- Specify your Python version, OS, and Cirquit version
+- Specify your Python version, OS, and quantIQ version
 - Describe expected vs. actual behavior
 
 **Example:**
 ```python
 # Bug: CNOT gate doesn't work on non-adjacent qubits
-from cirquit import QuantumCircuit
+from quantiq import QuantumCircuit
 
 circuit = QuantumCircuit(3)
 circuit.cnot(0, 2)  # Should work, but raises error
@@ -61,7 +61,7 @@ Have an idea? We want to hear it!
 - Solve a real problem you've experienced
 - Include use cases and examples
 - Consider implementation complexity
-- Check our [roadmap](https://github.com/cirquit/cirquit/projects/1) first
+- Check our [roadmap](https://github.com/quantiq/quantiq/projects/1) first
 
 Use our [feature request template](.github/ISSUE_TEMPLATE/feature_request.md).
 
@@ -81,7 +81,7 @@ Documentation is as important as code!
 Ready to write code? Awesome!
 
 **Good first issues:**
-Look for issues labeled [`good first issue`](https://github.com/cirquit/cirquit/labels/good%20first%20issue) or [`help wanted`](https://github.com/cirquit/cirquit/labels/help%20wanted).
+Look for issues labeled [`good first issue`](https://github.com/quantiq/quantiq/labels/good%20first%20issue) or [`help wanted`](https://github.com/quantiq/quantiq/labels/help%20wanted).
 
 **Areas that need help:**
 - Adding new quantum gates
@@ -104,11 +104,11 @@ Look for issues labeled [`good first issue`](https://github.com/cirquit/cirquit/
 
 ```bash
 # Fork the repository on GitHub, then clone your fork
-git clone https://github.com/YOUR_USERNAME/cirquit.git
-cd cirquit
+git clone https://github.com/YOUR_USERNAME/quantiq.git
+cd quantiq
 
 # Add upstream remote
-git remote add upstream https://github.com/cirquit/cirquit.git
+git remote add upstream https://github.com/quantiq/quantiq.git
 
 # Create virtual environment
 python -m venv venv
@@ -184,13 +184,13 @@ git checkout -b fix/bug-description
 pytest tests/ -v
 
 # Run with coverage
-pytest tests/ --cov=cirquit --cov-report=html
+pytest tests/ --cov=quantiq --cov-report=html
 
 # Check code style
-black cirquit/ tests/
-isort cirquit/ tests/
-mypy cirquit/
-pylint cirquit/
+black quantiq/ tests/
+isort quantiq/ tests/
+mypy quantiq/
+pylint quantiq/
 ```
 
 ### 4. Commit Your Changes
@@ -265,10 +265,10 @@ We follow [PEP 8](https://pep8.org/) with some modifications:
 **Formatting:**
 ```bash
 # Auto-format with Black
-black cirquit/
+black quantiq/
 
 # Sort imports
-isort cirquit/
+isort quantiq/
 ```
 
 **Type hints:**
@@ -324,7 +324,7 @@ def apply_gate(self, gate: Gate) -> 'QuantumCircuit':
 ### Code Organization
 
 ```
-cirquit/
+quantiq/
 ├── __init__.py          # Public API exports
 ├── circuit.py           # QuantumCircuit class
 ├── gates.py             # Gate definitions
@@ -366,7 +366,7 @@ for i in range(len(vector)):
 
 ```python
 import pytest
-from cirquit import QuantumCircuit
+from quantiq import QuantumCircuit
 
 class TestQuantumCircuit:
     """Tests for QuantumCircuit class."""
@@ -396,7 +396,7 @@ class TestQuantumCircuit:
 Aim for **>90% test coverage**:
 
 ```bash
-pytest tests/ --cov=cirquit --cov-report=term-missing
+pytest tests/ --cov=quantiq --cov-report=term-missing
 ```
 
 ### Test Types
@@ -517,7 +517,7 @@ using a Bell state circuit.
 Learn more: https://en.wikipedia.org/wiki/Bell_state
 """
 
-from cirquit import QuantumCircuit
+from quantiq import QuantumCircuit
 
 def main():
     # Create circuit
@@ -542,9 +542,9 @@ if __name__ == "__main__":
 
 ### Getting Help
 
-- 💬 **Discord**: [discord.gg/cirquit](https://discord.gg/cirquit)
-- 📧 **Email**: developers@cirquit.io
-- 💡 **Discussions**: [GitHub Discussions](https://github.com/cirquit/cirquit/discussions)
+- 💬 **Discord**: [discord.gg/quantiq](https://discord.gg/quantiq)
+- 📧 **Email**: developers@quantiq.io
+- 💡 **Discussions**: [GitHub Discussions](https://github.com/quantiq/quantiq/discussions)
 
 ### Recognition
 
@@ -560,8 +560,8 @@ Contributors are recognized in:
 
 Still have questions? We're here to help!
 
-- Open a [Discussion](https://github.com/cirquit/cirquit/discussions)
-- Ask in [Discord](https://discord.gg/cirquit)
-- Email us at developers@cirquit.io
+- Open a [Discussion](https://github.com/quantiq/quantiq/discussions)
+- Ask in [Discord](https://discord.gg/quantiq)
+- Email us at developers@quantiq.io
 
-**Thank you for contributing to Cirquit! Together, we're making quantum computing accessible to everyone.** 🚀⚛️
+**Thank you for contributing to quantIQ! Together, we're making quantum computing accessible to everyone.** 🚀⚛️

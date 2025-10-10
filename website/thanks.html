@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanks for Joining! - quantIQ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+        }
+
+        .icon {
+            font-size: 5rem;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            opacity: 0.95;
+        }
+
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 30px;
+            transition: transform 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">🎉</div>
+        <h1>You're on the list!</h1>
+        <p>Thanks for joining the quantIQ Cloud API waitlist.</p>
+        <p>We'll email you as soon as we launch (Q2 2026).</p>
+        <p style="margin-top: 30px; font-size: 1rem;">In the meantime, try our Python SDK:</p>
+        <p style="font-family: monospace; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px;">pip install quantiq</p>
+        <a href="/" class="btn">Back to Home</a>
+    </div>
+</body>
+</html>

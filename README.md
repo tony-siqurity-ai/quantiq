@@ -1,18 +1,18 @@
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tony-siqurity-ai/cirquit-brand/main/logos/logo-horizontal-white.png">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/tony-siqurity-ai/cirquit-brand/main/logos/logo-horizontal.png">
-    <img src="https://raw.githubusercontent.com/tony-siqurity-ai/cirquit-brand/main/logos/logo-horizontal.png" alt="Cirquit" width="400">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tony-siqurity-ai/quantiq-brand/main/logos/logo-horizontal-white.png">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/tony-siqurity-ai/quantiq-brand/main/logos/logo-horizontal.png">
+    <img src="https://raw.githubusercontent.com/tony-siqurity-ai/quantiq-brand/main/logos/logo-horizontal.png" alt="quantIQ" width="400">
   </picture>
 
   <p><strong>Quantum circuits, simplified.</strong></p>
 
-  [![PyPI version](https://badge.fury.io/py/cirquit.svg)](https://badge.fury.io/py/cirquit)
+  [![PyPI version](https://badge.fury.io/py/quantiq.svg)](https://badge.fury.io/py/quantiq)
   [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-  [![GitHub stars](https://img.shields.io/github/stars/tony-siqurity-ai/cirquit-web?style=social)](https://github.com/tony-siqurity-ai/cirquit-web)
+  [![GitHub stars](https://img.shields.io/github/stars/tony-siqurity-ai/quantiq-web?style=social)](https://github.com/tony-siqurity-ai/quantiq-web)
 
-  [Website](https://cirquit.dev) • [Documentation](https://docs.cirquit.dev) • [Examples](./examples)
+  [Website](https://quantiq.dev) • [Documentation](https://docs.quantiq.dev) • [Examples](./examples)
 </div>
 
 ---
@@ -20,11 +20,11 @@
 ## 🚀 Quick Start
 
 ```bash
-pip install cirquit
+pip install quantiq
 ```
 
 ```python
-from cirquit import QuantumCircuit
+from quantiq import QuantumCircuit
 
 # Create a Bell state (quantum entanglement)
 qc = QuantumCircuit(2)
@@ -41,9 +41,9 @@ print(result)
 
 ---
 
-## 🎯 What is Cirquit?
+## 🎯 What is quantIQ?
 
-**Cirquit** is a Python library for building quantum circuits with a developer-first approach. No quantum physics PhD required.
+**quantIQ** is a Python library for building quantum circuits with a developer-first approach. No quantum physics PhD required.
 
 - 🎯 **Simple API** - Intuitive, Pythonic interface
 - ⚡ **Fast** - Optimized quantum circuit simulation
@@ -90,7 +90,7 @@ print(qc)
 ### Bell State
 
 ```python
-from cirquit import QuantumCircuit
+from quantiq import QuantumCircuit
 
 qc = QuantumCircuit(2)
 qc.h(0)
@@ -104,7 +104,7 @@ result = qc.run(shots=1000)
 ### GHZ State (3-qubit Entanglement)
 
 ```python
-from cirquit import QuantumCircuit
+from quantiq import QuantumCircuit
 
 qc = QuantumCircuit(3)
 qc.h(0)
@@ -119,7 +119,7 @@ result = qc.run(shots=1000)
 ### Superposition
 
 ```python
-from cirquit import QuantumCircuit
+from quantiq import QuantumCircuit
 
 qc = QuantumCircuit(1)
 qc.h(0)  # Create superposition
@@ -143,14 +143,14 @@ result = qc.run(shots=1000)
 ### Install from PyPI
 
 ```bash
-pip install cirquit
+pip install quantiq
 ```
 
 ### Install from Source
 
 ```bash
-git clone https://github.com/tony-siqurity-ai/cirquit-web.git
-cd cirquit-web
+git clone https://github.com/tony-siqurity-ai/quantiq-web.git
+cd quantiq-web
 pip install -e .
 ```
 
@@ -158,10 +158,10 @@ pip install -e .
 
 ## 📚 Documentation
 
-Full documentation is available at [docs.cirquit.dev](https://docs.cirquit.dev)
+Full documentation is available at [docs.quantiq.dev](https://docs.quantiq.dev)
 
-- [Getting Started](https://docs.cirquit.dev)
-- [API Reference](https://docs.cirquit.dev)
+- [Getting Started](https://docs.quantiq.dev)
+- [API Reference](https://docs.quantiq.dev)
 - [Examples](./examples)
 
 ---
@@ -186,7 +186,7 @@ Full documentation is available at [docs.cirquit.dev](https://docs.cirquit.dev)
 - [ ] GPU-accelerated simulation
 - [ ] Cloud API
 
-**See our [full roadmap](https://github.com/tony-siqurity-ai/cirquit-web/issues) →**
+**See our [full roadmap](https://github.com/tony-siqurity-ai/quantiq-web/issues) →**
 
 ---
 
@@ -194,8 +194,8 @@ Full documentation is available at [docs.cirquit.dev](https://docs.cirquit.dev)
 
 Contributions are welcome! Here's how you can help:
 
-- 🐛 Report bugs by [opening an issue](https://github.com/tony-siqurity-ai/cirquit-web/issues)
-- ✨ Suggest features in [discussions](https://github.com/tony-siqurity-ai/cirquit-web/discussions)
+- 🐛 Report bugs by [opening an issue](https://github.com/tony-siqurity-ai/quantiq-web/issues)
+- ✨ Suggest features in [discussions](https://github.com/tony-siqurity-ai/quantiq-web/discussions)
 - 📝 Improve documentation
 - 🔧 Submit pull requests
 
@@ -205,8 +205,8 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
 
 ```bash
 # Clone the repository
-git clone https://github.com/tony-siqurity-ai/cirquit-web.git
-cd cirquit-web
+git clone https://github.com/tony-siqurity-ai/quantiq-web.git
+cd quantiq-web
 
 # Install in development mode
 pip install -e .
@@ -219,7 +219,7 @@ python -m pytest tests/
 
 ## 📄 License
 
-Cirquit is released under the [MIT License](./LICENSE).
+quantIQ is released under the [MIT License](./LICENSE).
 
 ---
 
@@ -235,16 +235,16 @@ Special thanks to early adopters and contributors!
 
 See our [public roadmap](https://github.com/users/tony-siqurity-ai/projects/1) for upcoming features and Cloud API development.
 
-Want to influence what we build? [Open a discussion](https://github.com/tony-siqurity-ai/cirquit-web/discussions)!
+Want to influence what we build? [Open a discussion](https://github.com/tony-siqurity-ai/quantiq-web/discussions)!
 
 ---
 
 <div align="center">
 
-**⭐ Star us on GitHub if you find Cirquit useful!**
+**⭐ Star us on GitHub if you find quantIQ useful!**
 
-Made with ⚛️ by the Cirquit team
+Made with ⚛️ by the quantIQ team
 
-[Get Started](https://docs.cirquit.dev) • [GitHub](https://github.com/tony-siqurity-ai/cirquit-web) • [PyPI](https://pypi.org/project/cirquit/)
+[Get Started](https://docs.quantiq.dev) • [GitHub](https://github.com/tony-siqurity-ai/quantiq-web) • [PyPI](https://pypi.org/project/quantiq/)
 
 </div>

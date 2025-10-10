@@ -3,17 +3,17 @@ requires = ["setuptools>=68.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "cirquit"
+name = "quantiq"
 version = "1.1.0"
 description = "Quantum circuits, simplified. A developer-first quantum computing platform."
 readme = "README.md"
 requires-python = ">=3.11"
 license = {text = "MIT"}
 authors = [
-    {name = "Cirquit Team", email = "hello@cirquit.dev"}
+    {name = "quantIQ Team", email = "hello@quantiq.dev"}
 ]
 maintainers = [
-    {name = "Cirquit Team", email = "hello@cirquit.dev"}
+    {name = "quantIQ Team", email = "hello@quantiq.dev"}
 ]
 keywords = [
     "quantum",
@@ -77,26 +77,26 @@ cloud = [
 ]
 
 all = [
-    "cirquit[dev,docs,viz,cloud]",
+    "quantiq[dev,docs,viz,cloud]",
 ]
 
 [project.urls]
-Homepage = "https://cirquit.io"
-Documentation = "https://docs.cirquit.io"
-Repository = "https://github.com/cirquit/cirquit"
-"Bug Tracker" = "https://github.com/cirquit/cirquit/issues"
-Discord = "https://discord.gg/cirquit"
-Twitter = "https://twitter.com/cirquit_io"
-Changelog = "https://github.com/cirquit/cirquit/blob/main/CHANGELOG.md"
+Homepage = "https://quantiq.io"
+Documentation = "https://docs.quantiq.io"
+Repository = "https://github.com/quantiq/quantiq"
+"Bug Tracker" = "https://github.com/quantiq/quantiq/issues"
+Discord = "https://discord.gg/quantiq"
+Twitter = "https://twitter.com/quantiq_io"
+Changelog = "https://github.com/quantiq/quantiq/blob/main/CHANGELOG.md"
 
 [project.scripts]
-cirquit = "cirquit.cli:main"
+quantiq = "quantiq.cli:main"
 
 [tool.setuptools]
-packages = ["cirquit"]
+packages = ["quantiq"]
 
 [tool.setuptools.package-data]
-cirquit = ["py.typed", "data/*.json"]
+quantiq = ["py.typed", "data/*.json"]
 
 # ===== Black Configuration =====
 [tool.black]
@@ -135,7 +135,7 @@ addopts = [
     "-q",
     "--strict-markers",
     "--strict-config",
-    "--cov=cirquit",
+    "--cov=quantiq",
     "--cov-report=term-missing",
     "--cov-report=html",
     "--cov-report=xml",
@@ -152,7 +152,7 @@ markers = [
 
 # ===== Coverage Configuration =====
 [tool.coverage.run]
-source = ["cirquit"]
+source = ["quantiq"]
 omit = [
     "*/tests/*",
     "*/test_*.py",

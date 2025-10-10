@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Cirquit Blog
+title: quantIQ Blog
 ---
 
-# Cirquit Blog
+# quantIQ Blog
 
 Learn about quantum computing, product updates, and community stories.
 
