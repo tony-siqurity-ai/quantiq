@@ -4,68 +4,78 @@ echo "Deploying new quantIQ logos..."
 
 SRC="$HOME/Downloads/quantiq-logos"
 
-# HORIZONTAL LOGOS (icon + text)
-# Image 8 - Main horizontal logo, high-res
-cp "$SRC/logo-horizontal-2000.png" brand/logos/logo-horizontal-large.png
-
-# Image 13 - Horizontal logo, medium size
-cp "$SRC/logo-horizontal-1000.png" brand/logos/logo-horizontal.png
-cp "$SRC/logo-horizontal-1000.png" blog/assets/logo-horizontal.png
-cp "$SRC/logo-horizontal-1000.png" logo.png
-
-# Image 14 - Horizontal logo with tagline
-cp "$SRC/logo-horizontal-tagline.png" brand/logos/logo-horizontal-tagline.png
-
-# TEXT ONLY LOGOS (no icon, just text)
-# Image 9 - White "quant" + gradient "IQ" (for dark backgrounds)
-cp "$SRC/logo-text-white.png" brand/logos/logo-text-white.png
-
-# WHITE/LIGHT VERSIONS (for dark backgrounds)
-# Image 11 - White icon only
-cp "$SRC/icon-white-1000.png" brand/logos/logo-icon-white.png
-
-# Image 12 - White stacked version (icon + IQ text)
-cp "$SRC/logo-stacked-white.png" brand/logos/logo-stacked-white.png
-cp "$SRC/logo-stacked-white.png" blog/assets/logo-horizontal-white.png
-
-# STACKED LOGO (icon on top, text below)
-# Image 10 - Full color stacked
-cp "$SRC/logo-stacked-1000.png" brand/logos/logo-stacked.png
-
-# ICON ONLY (just the orb)
-# Image 1 - Extra large (4166x4166)
-cp "$SRC/icon-4166.png" icon-4166.png
-
-# Image 2 - Large (1024x1024)
-cp "$SRC/icon-1024.png" logo-icon.png
-
-# Image 3 - Medium (512x512)
-cp "$SRC/icon-512.png" docs/logo.png
-
-# Image 5 - Small (192x192 - PWA)
-cp "$SRC/icon-192.png" icon-192.png
-
-# Image 6 - Another medium size
-cp "$SRC/icon-256.png" brand/icons/icon-256.png
-
-# FAVICONS
-# Image 4 & 7 - Tiny favicons
-cp "$SRC/icon-64.png" brand/icons/favicon.png
-cp "$SRC/icon-64.png" docs/favicon.png
+# BRAND/ICONS - Favicon and icon sizes
+echo "Updating brand/icons/..."
 cp "$SRC/icon-32.png" brand/icons/favicon-32.png
+cp "$SRC/icon-64.png" brand/icons/favicon.png
+cp "$SRC/icon-64.png" brand/icons/icon-64.png
+cp "$SRC/icon-192.png" brand/icons/icon-192.png
+cp "$SRC/icon-256.png" brand/icons/icon-256.png
+cp "$SRC/icon-512.png" brand/icons/icon-512.png
+cp "$SRC/icon-4166.png" brand/icons/icon-4166.png
+cp "$SRC/icon-white-1000.png" brand/icons/icon-white-512.png
 
-# Generate .ico file
+# Generate favicon.ico
 if command -v convert &> /dev/null; then
     convert "$SRC/icon-64.png" -define icon:auto-resize=64,48,32,16 brand/icons/favicon.ico
+    echo "  ✓ Generated favicon.ico"
 else
-    echo "⚠️  ImageMagick not found. Generate favicon.ico at: https://favicon.io/favicon-converter/"
+    echo "  ⚠️  ImageMagick not found - generate favicon.ico at https://favicon.io/favicon-converter/"
 fi
 
-echo "✓ Logo deployment complete!"
+# BRAND/LOGOS - Logo variations
+echo "Updating brand/logos/..."
+cp "$SRC/logo-horizontal-2000.png" brand/logos/logo-horizontal-large.png
+cp "$SRC/logo-horizontal-1000.png" brand/logos/logo-horizontal.png
+cp "$SRC/logo-horizontal-tagline.png" brand/logos/logo-horizontal-tagline.png
+cp "$SRC/logo-stacked-white.png" brand/logos/logo-horizontal-white.png
+cp "$SRC/icon-white-1000.png" brand/logos/logo-icon-white.png
+cp "$SRC/logo-stacked-white.png" brand/logos/logo-stacked-white.png
+cp "$SRC/logo-stacked-1000.png" brand/logos/logo-stacked.png
+cp "$SRC/logo-text-white.png" brand/logos/logo-text-white.png
+
+# BRAND/SOCIAL - Social media images
+echo "Updating brand/social/..."
+cp "$SRC/icon-1024.png" brand/social/og-image.png
+cp "$SRC/icon-512.png" brand/social/apple-touch-icon.png
+
+# BRAND/WEB - PWA/mobile icons
+echo "Updating brand/web/..."
+cp "$SRC/icon-192.png" brand/web/android-chrome-192.png
+cp "$SRC/icon-512.png" brand/web/android-chrome-512.png
+cp "$SRC/icon-512.png" brand/web/apple-touch-icon.png
+
+# ROOT LEVEL - Main logo files
+echo "Updating root files..."
+cp "$SRC/logo-horizontal-1000.png" logo.png
+cp "$SRC/icon-1024.png" logo-icon.png
+cp "$SRC/icon-4166.png" icon-4166.png
+cp "$SRC/icon-192.png" icon-192.png
+
+# BLOG - Blog assets
+echo "Updating blog/assets/..."
+cp "$SRC/logo-horizontal-1000.png" blog/assets/logo-horizontal.png
+cp "$SRC/logo-stacked-white.png" blog/assets/logo-horizontal-white.png
+
+# DOCS - Documentation
+echo "Updating docs/..."
+cp "$SRC/icon-512.png" docs/logo.png
+cp "$SRC/icon-64.png" docs/favicon.png
+
 echo ""
-echo "Logo inventory:"
-echo "  - Horizontal (icon + text): logo-horizontal-*.png"
-echo "  - Text only (for dark bg): logo-text-white.png"
-echo "  - Stacked: logo-stacked.png"
-echo "  - Icon only: icon-*.png"
-echo "  - White versions: *-white.png"
+echo "✅ Logo deployment complete!"
+echo ""
+echo "Updated locations:"
+echo "  📁 brand/icons/    - 8 icon sizes + favicon.ico"
+echo "  📁 brand/logos/    - 8 logo variations"
+echo "  📁 brand/social/   - 2 social media images"
+echo "  📁 brand/web/      - 3 PWA/mobile icons"
+echo "  📁 Root level      - 4 main files"
+echo "  📁 blog/assets/    - 2 blog logos"
+echo "  📁 docs/           - 2 doc files"
+echo ""
+echo "Next steps:"
+echo "  git status"
+echo "  git add ."
+echo "  git commit -m 'Update all logos to quantIQ branding'"
+echo "  git push origin main"
