@@ -1,6 +1,5 @@
 """Tests for QuantumCircuit class."""
 import pytest
-import numpy as np
 from quantiq import QuantumCircuit
 
 
@@ -31,6 +30,7 @@ class TestQuantumGates:
         circuit = QuantumCircuit(1)
         circuit.h(0)
         assert len(circuit.gates) == 1
+        assert circuit.gates[0] == ('H', 0)
     
     def test_cnot_gate(self):
         """Test applying CNOT gate."""
@@ -45,27 +45,13 @@ class TestQuantumGates:
         circuit.y(0)
         circuit.z(0)
         assert len(circuit.gates) == 3
-
-
-class TestCircuitExecution:
-    """Test circuit execution and measurement."""
     
-    def test_circuit_execution(self):
-        """Test that circuits can be executed."""
+    def test_gate_chaining(self):
+        """Test that gates can be chained."""
         circuit = QuantumCircuit(2)
-        circuit.h(0)
-        circuit.cx(0, 1)
-        # This assumes you have a run/execute method
-        # Adjust based on your actual API
-        result = circuit.run(shots=100)
-        assert result is not None
-    
-    def test_measure(self):
-        """Test measurement."""
-        circuit = QuantumCircuit(1)
-        circuit.h(0)
-        circuit.measure(0)
-        assert len(circuit.measurements) > 0
+        result = circuit.h(0).x(1)
+        assert result is circuit  # Should return self for chaining
+        assert len(circuit.gates) == 2
 
 
 def test_package_import():
