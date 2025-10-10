@@ -40,7 +40,7 @@ dev = [
 
 [project.urls]
 Homepage = "https://quantiq.dev"
-Documentation = "https://docs.quantiq.dev"
+Documentation = "https://quantiq.dev/docs"
 Repository = "https://github.com/tony-siqurity-ai/quantiq"
 Changelog = "https://github.com/tony-siqurity-ai/quantiq/blob/main/CHANGELOG.md"
 Blog = "https://quantiq.dev/blog"

@@ -12,7 +12,7 @@
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   [![GitHub stars](https://img.shields.io/github/stars/tony-siqurity-ai/quantiq-web?style=social)](https://github.com/tony-siqurity-ai/quantiq-web)
 
-  [Website](https://quantiq.dev) • [Documentation](https://docs.quantiq.dev) • [Examples](./examples)
+  [Website](https://quantiq.dev) • [Documentation](https://quantiq.dev/docs) • [Examples](./examples)
 </div>
 
 ---
@@ -158,10 +158,10 @@ pip install -e .
 
 ## 📚 Documentation
 
-Full documentation is available at [docs.quantiq.dev](https://docs.quantiq.dev)
+Full documentation is available at [docs.quantiq.dev](https://quantiq.dev/docs)
 
-- [Getting Started](https://docs.quantiq.dev)
-- [API Reference](https://docs.quantiq.dev)
+- [Getting Started](https://quantiq.dev/docs)
+- [API Reference](https://quantiq.dev/docs)
 - [Examples](./examples)
 
 ---
@@ -245,6 +245,6 @@ Want to influence what we build? [Open a discussion](https://github.com/tony-siq
 
 Made with ⚛️ by the quantIQ team
 
-[Get Started](https://docs.quantiq.dev) • [GitHub](https://github.com/tony-siqurity-ai/quantiq-web) • [PyPI](https://pypi.org/project/quantiq/)
+[Get Started](https://quantiq.dev/docs) • [GitHub](https://github.com/tony-siqurity-ai/quantiq-web) • [PyPI](https://pypi.org/project/quantiq/)
 
 </div>
