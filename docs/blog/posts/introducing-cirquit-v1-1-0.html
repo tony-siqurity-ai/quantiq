@@ -13,35 +13,77 @@
             line-height: 1.8;
         }
         .container { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
-        .back-link { color: #a855f7; text-decoration: none; margin-bottom: 30px; display: inline-block; }
+        .back-link { 
+            color: #a855f7; 
+            text-decoration: none; 
+            margin-bottom: 30px; 
+            display: inline-block;
+            font-size: 16px;
+        }
         .back-link:hover { color: #ec4899; }
-        article { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(168, 85, 247, 0.2); 
-                  border-radius: 12px; padding: 40px; }
-        h1 { font-size: 42px; color: #fff; margin-bottom: 20px; }
-        .meta { display: flex; gap: 20px; color: #a78bfa; margin-bottom: 40px; 
-                padding-bottom: 20px; border-bottom: 1px solid rgba(168, 85, 247, 0.2); }
-        h2 { color: #fff; margin: 40px 0 20px; font-size: 28px; }
-        p { margin-bottom: 20px; color: #cbd5e1; }
+        article { 
+            background: rgba(255, 255, 255, 0.05); 
+            border: 1px solid rgba(168, 85, 247, 0.2); 
+            border-radius: 12px; 
+            padding: 40px; 
+        }
+        h1 { font-size: 42px; color: #fff; margin-bottom: 20px; line-height: 1.2; }
+        .meta { 
+            display: flex; 
+            gap: 20px; 
+            color: #a78bfa; 
+            margin-bottom: 40px; 
+            padding-bottom: 20px; 
+            border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+            font-size: 14px;
+        }
+        h2 { 
+            color: #fff; 
+            margin: 40px 0 20px; 
+            font-size: 28px;
+        }
+        h2::before {
+            content: '‚ú® ';
+            margin-right: 8px;
+        }
+        p { margin-bottom: 20px; color: #cbd5e1; font-size: 17px; }
         code {
             background: rgba(0, 0, 0, 0.3);
-            padding: 2px 6px;
+            padding: 3px 8px;
             border-radius: 4px;
             color: #ec4899;
-            font-family: 'Courier New', monospace;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 15px;
         }
         pre {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 24px;
             border-radius: 8px;
             overflow-x: auto;
-            margin: 20px 0;
-            border: 1px solid rgba(168, 85, 247, 0.2);
+            margin: 24px 0;
+            border: 1px solid rgba(168, 85, 247, 0.3);
         }
-        pre code { background: none; padding: 0; color: #a78bfa; }
+        pre code { 
+            background: none; 
+            padding: 0; 
+            color: #e2e8f0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
         ul { margin: 20px 0 20px 30px; }
-        li { margin-bottom: 10px; color: #cbd5e1; }
-        .highlight { background: rgba(168, 85, 247, 0.2); padding: 20px; border-radius: 8px; 
-                     border-left: 4px solid #a855f7; margin: 30px 0; }
+        li { margin-bottom: 12px; color: #cbd5e1; font-size: 17px; }
+        li strong { color: #fff; }
+        .highlight { 
+            background: rgba(168, 85, 247, 0.15); 
+            padding: 24px; 
+            border-radius: 8px; 
+            border-left: 4px solid #a855f7; 
+            margin: 30px 0; 
+        }
+        .highlight strong { color: #fff; display: block; margin-bottom: 10px; }
+        a { color: #a855f7; text-decoration: none; }
+        a:hover { color: #ec4899; text-decoration: underline; }
+        strong { color: #fff; }
     </style>
 </head>
 <body>
@@ -54,7 +96,7 @@
             <div class="meta">
                 <span>Ì≥Ö October 9, 2025</span>
                 <span>Ì±§ Tony Rossi</span>
-                <span>‚è±Ô∏è 5 min read</span>
+                <span>‚è± 5 min read</span>
             </div>
 
             <p>
@@ -62,7 +104,7 @@
                 platform built for developers who want to explore quantum algorithms without drowning in complexity.
             </p>
 
-            <h2>ÌæØ Why Cirquit?</h2>
+            <h2>Why Cirquit?</h2>
             
             <p>
                 Quantum computing is incredibly powerful, but existing tools have a steep learning curve. 
@@ -70,10 +112,11 @@
             </p>
 
             <div class="highlight">
-                <strong>Goal:</strong> From idea to running quantum circuit in under 2 minutes.
+                <strong>Goal:</strong>
+                <p style="margin: 0; color: #cbd5e1;">From idea to running quantum circuit in under 2 minutes.</p>
             </div>
 
-            <h2>‚ú® What's New in v1.1.0</h2>
+            <h2>What's New in v1.1.0</h2>
 
             <p><strong>Complete Statevector Simulator</strong></p>
             <ul>
@@ -96,7 +139,7 @@
                 <li>Comprehensive error messages</li>
             </ul>
 
-            <h2>Ì∫Ä Quick Example</h2>
+            <h2>Quick Example</h2>
 
             <p>Creating a Bell state has never been easier:</p>
 
@@ -115,7 +158,7 @@ print(result)</code></pre>
 
             <p>That's it! Three lines of code to create quantum entanglement.</p>
 
-            <h2>Ì≥ä What You Get</h2>
+            <h2>What You Get</h2>
 
             <p>When you run the code above, you'll see:</p>
             <ul>
@@ -125,14 +168,14 @@ print(result)</code></pre>
                 <li>Access to full statevector if you need it</li>
             </ul>
 
-            <h2>Ìæì Perfect for Learning</h2>
+            <h2>Perfect for Learning</h2>
 
             <p>
                 Whether you're a student learning quantum computing, a researcher exploring algorithms, 
                 or a developer curious about quantum tech ‚Äî Cirquit makes it easy to experiment.
             </p>
 
-            <h2>Ì¥Æ What's Next</h2>
+            <h2>What's Next</h2>
 
             <p>This is just the beginning. Coming soon:</p>
             <ul>
@@ -142,27 +185,24 @@ print(result)</code></pre>
                 <li><strong>Interactive Builder</strong> ‚Äî Visual circuit editor</li>
             </ul>
 
-            <h2>Ì¥ù Join the Community</h2>
+            <h2>Join the Community</h2>
 
             <p>
-                I'd love your feedback! Join our <a href="https://github.com/tony-siqurity-ai/cirquit-web/discussions" 
-                style="color: #a855f7;">GitHub Discussions</a> to share ideas, ask questions, or show what you're building.
+                I'd love your feedback! Join our <a href="https://github.com/tony-siqurity-ai/cirquit-web/discussions">GitHub Discussions</a> to share ideas, ask questions, or show what you're building.
             </p>
 
             <div class="highlight">
                 <strong>Get Started:</strong>
-                <pre style="margin-top: 10px;"><code>pip install cirquit</code></pre>
+                <pre style="margin-top: 10px; margin-bottom: 0;"><code>pip install cirquit</code></pre>
             </div>
 
             <p>
-                Check out the <a href="https://docs.cirquit.dev" style="color: #a855f7;">documentation</a> 
+                Check out the <a href="https://docs.cirquit.dev">documentation</a> 
                 for tutorials and examples.
             </p>
 
-            <p style="margin-top: 40px; padding-top: 40px; border-top: 1px solid rgba(168, 85, 247, 0.2);">
-                <em>Have questions or feedback? <a href="https://github.com/tony-siqurity-ai/cirquit-web/discussions" 
-                style="color: #a855f7;">Start a discussion</a> or reach out on Twitter 
-                <a href="https://twitter.com/cirquitdev" style="color: #a855f7;">@cirquitdev</a>.</em>
+            <p style="margin-top: 40px; padding-top: 40px; border-top: 1px solid rgba(168, 85, 247, 0.2); font-style: italic;">
+                Have questions or feedback? <a href="https://github.com/tony-siqurity-ai/cirquit-web/discussions">Start a discussion</a> or reach out on Twitter <a href="https://twitter.com/cirquitdev">@cirquitdev</a>.
             </p>
         </article>
     </div>
