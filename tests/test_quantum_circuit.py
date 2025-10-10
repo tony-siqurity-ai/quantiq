@@ -1,6 +1,7 @@
 """Tests for QuantumCircuit class."""
 
 import pytest
+
 from quantiq import QuantumCircuit
 
 

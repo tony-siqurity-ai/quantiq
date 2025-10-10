@@ -2,8 +2,8 @@
 Quantum circuit execution results
 """
 
-from typing import Dict, List, Tuple
 from collections import Counter
+from typing import Dict, List, Tuple
 
 
 class Result:

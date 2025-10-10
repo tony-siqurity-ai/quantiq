@@ -2,10 +2,12 @@
 Quantum circuit simulator using statevector representation
 """
 
+from typing import Dict, List, Tuple
+
 import numpy as np
-from typing import List, Tuple, Dict
+
+from .gates import CX, H, X, Y, Z
 from .results import Result
-from .gates import H, X, Y, Z, CX
 
 
 class Simulator:

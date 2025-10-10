@@ -2,11 +2,13 @@
 Main QuantumCircuit class for quantIQ
 """
 
+from typing import List, Optional, Tuple
+
 import numpy as np
-from typing import List, Tuple, Optional
-from .gates import H, X, Y, Z, CX
-from .simulator import Simulator
+
+from .gates import CX, H, X, Y, Z
 from .results import Result
+from .simulator import Simulator
 from .visualization import CircuitDrawer
 
 
