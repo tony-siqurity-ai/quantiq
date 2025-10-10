@@ -4,7 +4,7 @@
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/tony-siqurity-ai/quantiq/main/brand/logos/logo-horizontal.png">
     <img src="https://raw.githubusercontent.com/tony-siqurity-ai/quantiq-brand/main/logos/logo-horizontal.png" alt="quantIQ" width="400">
   </picture>
-![quantIQ](https://raw.githubusercontent.com/tony-siqurity-ai/quantiq/main/social/github-social-preview.png)
+
   <p><strong>Quantum circuits, simplified.</strong></p>
 
   [![PyPI version](https://badge.fury.io/py/quantiq.svg)](https://badge.fury.io/py/quantiq)
