@@ -1,0 +1,16 @@
+name: Deploy Sites
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      # Deploy will happen automatically to configured custom domains
+      - name: Deploy complete
+        run: echo "Sites deployed via GitHub Pages settings"
