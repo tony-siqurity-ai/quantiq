@@ -15,7 +15,6 @@
             min-height: 100vh;
         }
         
-        /* Header */
         .header {
             border-bottom: 1px solid rgba(168, 85, 247, 0.2);
             background: rgba(15, 23, 42, 0.8);
@@ -28,7 +27,7 @@
         .header-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 24px 32px;
+            padding: 20px 32px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -38,31 +37,31 @@
             display: flex;
             align-items: center;
             gap: 16px;
+            text-decoration: none;
         }
         
         .logo {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, #a855f7, #ec4899);
-            border-radius: 12px;
+            height: 40px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            box-shadow: 0 4px 12px rgba(168, 85, 247, 0.4);
+        }
+        
+        .logo img {
+            height: 100%;
+            width: auto;
+        }
+        
+        .logo-divider {
+            width: 1px;
+            height: 30px;
+            background: rgba(168, 85, 247, 0.3);
+            margin: 0 8px;
         }
         
         .logo-text h1 {
-            font-size: 28px;
-            background: linear-gradient(135deg, #a855f7, #ec4899);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
-        }
-        
-        .logo-text p {
-            font-size: 14px;
+            font-size: 20px;
             color: #a78bfa;
+            font-weight: 600;
         }
         
         .nav-links {
@@ -82,7 +81,6 @@
             color: #ec4899;
         }
         
-        /* Hero Section */
         .hero {
             text-align: center;
             padding: 80px 32px 60px;
@@ -135,17 +133,15 @@
             right: 20px;
             top: 50%;
             transform: translateY(-50%);
-            color: #a78bfa;
+            font-size: 18px;
         }
         
-        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 32px 80px;
         }
         
-        /* Featured Post */
         .featured {
             background: rgba(168, 85, 247, 0.1);
             border: 1px solid rgba(168, 85, 247, 0.3);
@@ -202,7 +198,6 @@
             line-height: 1.7;
         }
         
-        /* Posts Grid */
         .section-header {
             display: flex;
             justify-content: space-between;
@@ -335,7 +330,6 @@
             display: none;
         }
         
-        /* Newsletter */
         .newsletter {
             background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(236, 72, 153, 0.15));
             border: 1px solid rgba(168, 85, 247, 0.3);
@@ -389,7 +383,6 @@
             transform: scale(1.05);
         }
         
-        /* Footer */
         .footer {
             border-top: 1px solid rgba(168, 85, 247, 0.2);
             padding: 40px 32px;
@@ -408,6 +401,7 @@
             color: #a78bfa;
             font-size: 24px;
             transition: color 0.3s;
+            text-decoration: none;
         }
         
         .social-links a:hover {
@@ -423,16 +417,17 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <div class="header">
         <div class="header-content">
-            <div class="logo-section">
-                <div class="logo">‚öõÔ∏è</div>
-                <div class="logo-text">
-                    <h1>Cirquit Blog</h1>
-                    <p>Quantum insights & tutorials</p>
+            <a href="https://cirquit.dev" class="logo-section">
+                <div class="logo">
+                    <img src="assets/logo-horizontal.png" alt="Cirquit Logo">
                 </div>
-            </div>
+                <div class="logo-divider"></div>
+                <div class="logo-text">
+                    <h1>Blog</h1>
+                </div>
+            </a>
             <div class="nav-links">
                 <a href="https://cirquit.dev">Home</a>
                 <a href="https://docs.cirquit.dev">Docs</a>
@@ -441,35 +436,31 @@
         </div>
     </div>
 
-    <!-- Hero -->
     <div class="hero">
         <h2>Learn Quantum Computing</h2>
         <p>Tutorials, insights, and updates from the Cirquit team</p>
         <div class="search-box">
             <input type="text" id="searchInput" placeholder="Search articles...">
-            <span class="search-icon">Ì¥ç</span>
+            <span class="search-icon">&#128269;</span>
         </div>
     </div>
 
-    <!-- Main Content -->
     <div class="container">
-        <!-- Featured Post -->
         <div class="featured">
-            <span class="featured-badge">‚ú® Featured</span>
+            <span class="featured-badge">&#10024; FEATURED</span>
             <h3><a href="posts/introducing-cirquit-v1-1-0.html">Introducing Cirquit v1.1.0: Complete Quantum Simulator</a></h3>
             <p>
                 Today we're launching Cirquit v1.1.0 with a full-featured quantum simulator. 
                 Learn about the new features, what makes Cirquit different, and what's coming next.
             </p>
             <div class="post-meta">
-                <span>Ì≥Ö October 9, 2025</span>
-                <span>Ì±§ Tony Rossi</span>
-                <span>‚è±Ô∏è 5 min read</span>
+                <span>&#128197; October 9, 2025</span>
+                <span>&#128100; Tony Rossi</span>
+                <span>&#9201; 5 min read</span>
             </div>
-            <a href="posts/introducing-cirquit-v1-1-0.html" class="read-more">Read Full Post ‚Üí</a>
+            <a href="posts/introducing-cirquit-v1-1-0.html" class="read-more">Read Full Post &rarr;</a>
         </div>
 
-        <!-- Section Header -->
         <div class="section-header">
             <h2>Latest Posts</h2>
             <div class="categories">
@@ -482,10 +473,9 @@
             </div>
         </div>
 
-        <!-- Posts Grid -->
         <div class="posts-grid" id="postsGrid">
             <article class="post-card" data-category="tutorial" data-title="Your First Quantum Circuit in 5 Minutes" data-description="A beginner-friendly guide to creating your first quantum circuit. No quantum physics degree required!">
-                <span class="post-icon">Ì≥ö</span>
+                <span class="post-icon">&#128218;</span>
                 <span class="post-category">Tutorial</span>
                 <div class="post-meta">
                     <span>Oct 10, 2025</span>
@@ -493,11 +483,11 @@
                 </div>
                 <h3><a href="#">Your First Quantum Circuit in 5 Minutes</a></h3>
                 <p>A beginner-friendly guide to creating your first quantum circuit. No quantum physics degree required!</p>
-                <a href="#" class="read-more">Read More ‚Üí</a>
+                <a href="#" class="read-more">Read More &rarr;</a>
             </article>
 
             <article class="post-card" data-category="technical" data-title="How We Built a Quantum Simulator in Python" data-description="Deep dive into the architecture and optimization techniques behind Cirquit's simulator.">
-                <span class="post-icon">‚öôÔ∏è</span>
+                <span class="post-icon">&#9881;</span>
                 <span class="post-category">Technical</span>
                 <div class="post-meta">
                     <span>Oct 11, 2025</span>
@@ -505,11 +495,11 @@
                 </div>
                 <h3><a href="#">How We Built a Quantum Simulator in Python</a></h3>
                 <p>Deep dive into the architecture and optimization techniques behind Cirquit's simulator.</p>
-                <a href="#" class="read-more">Read More ‚Üí</a>
+                <a href="#" class="read-more">Read More &rarr;</a>
             </article>
 
             <article class="post-card" data-category="algorithms" data-title="Quantum Algorithms Explained: Grover's Search" data-description="Understand how Grover's algorithm achieves quadratic speedup for database search.">
-                <span class="post-icon">Ì¥ç</span>
+                <span class="post-icon">&#128269;</span>
                 <span class="post-category">Algorithms</span>
                 <div class="post-meta">
                     <span>Oct 12, 2025</span>
@@ -517,11 +507,11 @@
                 </div>
                 <h3><a href="#">Quantum Algorithms Explained: Grover's Search</a></h3>
                 <p>Understand how Grover's algorithm achieves quadratic speedup for database search.</p>
-                <a href="#" class="read-more">Read More ‚Üí</a>
+                <a href="#" class="read-more">Read More &rarr;</a>
             </article>
 
             <article class="post-card" data-category="community" data-title="Community Spotlight: Amazing Circuits" data-description="Featuring incredible quantum circuits created by the Cirquit community this week.">
-                <span class="post-icon">‚ú®</span>
+                <span class="post-icon">&#10024;</span>
                 <span class="post-category">Community</span>
                 <div class="post-meta">
                     <span>Oct 13, 2025</span>
@@ -529,11 +519,11 @@
                 </div>
                 <h3><a href="#">Community Spotlight: Amazing Circuits</a></h3>
                 <p>Featuring incredible quantum circuits created by the Cirquit community this week.</p>
-                <a href="#" class="read-more">Read More ‚Üí</a>
+                <a href="#" class="read-more">Read More &rarr;</a>
             </article>
 
             <article class="post-card" data-category="tutorial" data-title="Quantum Entanglement for Beginners" data-description="Learn about quantum entanglement and create your first Bell state with Cirquit.">
-                <span class="post-icon">Ìæì</span>
+                <span class="post-icon">&#127891;</span>
                 <span class="post-category">Tutorial</span>
                 <div class="post-meta">
                     <span>Oct 14, 2025</span>
@@ -541,11 +531,11 @@
                 </div>
                 <h3><a href="#">Quantum Entanglement for Beginners</a></h3>
                 <p>Learn about quantum entanglement and create your first Bell state with Cirquit.</p>
-                <a href="#" class="read-more">Read More ‚Üí</a>
+                <a href="#" class="read-more">Read More &rarr;</a>
             </article>
 
             <article class="post-card" data-category="product" data-title="Product Roadmap: Q4 2025" data-description="What's coming next for Cirquit: cloud execution, hardware backends, and more.">
-                <span class="post-icon">Ì∫Ä</span>
+                <span class="post-icon">&#128640;</span>
                 <span class="post-category">Product</span>
                 <div class="post-meta">
                     <span>Oct 15, 2025</span>
@@ -553,17 +543,15 @@
                 </div>
                 <h3><a href="#">Product Roadmap: Q4 2025</a></h3>
                 <p>What's coming next for Cirquit: cloud execution, hardware backends, and more.</p>
-                <a href="#" class="read-more">Read More ‚Üí</a>
+                <a href="#" class="read-more">Read More &rarr;</a>
             </article>
         </div>
 
-        <!-- No Results Message -->
         <div class="no-results hidden" id="noResults">
             <h3>No posts found</h3>
             <p>Try adjusting your search or filter to find what you're looking for.</p>
         </div>
 
-        <!-- Newsletter -->
         <div class="newsletter">
             <h2>Stay Updated</h2>
             <p>Get weekly quantum computing insights delivered to your inbox</p>
@@ -574,18 +562,16 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <div class="footer">
         <div class="social-links">
-            <a href="https://twitter.com/cirquitdev">Ì∞¶</a>
-            <a href="https://github.com/tony-siqurity-ai/cirquit-web">Ì≤ª</a>
-            <a href="https://github.com/tony-siqurity-ai/cirquit-web/discussions">Ì≤¨</a>
+            <a href="https://twitter.com/cirquitdev" title="Twitter">&#128038;</a>
+            <a href="https://github.com/tony-siqurity-ai/cirquit-web" title="GitHub">&#128187;</a>
+            <a href="https://github.com/tony-siqurity-ai/cirquit-web/discussions" title="Discussions">&#128172;</a>
         </div>
-        <p>&copy; 2025 Cirquit. Built with quantum love. ‚öõÔ∏è</p>
+        <p>&copy; 2025 Cirquit. Built with quantum love. &#9883;</p>
     </div>
 
     <script>
-        // Get elements
         const searchInput = document.getElementById('searchInput');
         const postsGrid = document.getElementById('postsGrid');
         const noResults = document.getElementById('noResults');
@@ -595,26 +581,20 @@
         let currentCategory = 'all';
         let currentSearch = '';
 
-        // Search functionality
         searchInput.addEventListener('input', (e) => {
             currentSearch = e.target.value.toLowerCase();
             filterPosts();
         });
 
-        // Category filter functionality
         categoryPills.forEach(pill => {
             pill.addEventListener('click', () => {
-                // Update active state
                 categoryPills.forEach(p => p.classList.remove('active'));
                 pill.classList.add('active');
-                
-                // Update current category
                 currentCategory = pill.getAttribute('data-category');
                 filterPosts();
             });
         });
 
-        // Filter posts based on search and category
         function filterPosts() {
             let visibleCount = 0;
 
@@ -623,15 +603,11 @@
                 const title = card.getAttribute('data-title').toLowerCase();
                 const description = card.getAttribute('data-description').toLowerCase();
 
-                // Check if matches category
                 const categoryMatch = currentCategory === 'all' || category === currentCategory;
-                
-                // Check if matches search
                 const searchMatch = currentSearch === '' || 
                                   title.includes(currentSearch) || 
                                   description.includes(currentSearch);
 
-                // Show/hide card
                 if (categoryMatch && searchMatch) {
                     card.classList.remove('hidden');
                     visibleCount++;
@@ -640,7 +616,6 @@
                 }
             });
 
-            // Show/hide no results message
             if (visibleCount === 0) {
                 noResults.classList.remove('hidden');
             } else {
