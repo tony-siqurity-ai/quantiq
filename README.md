@@ -20,7 +20,7 @@
 ## 🚀 Quick Start
 
 ```bash
-pip install quantiq
+pip install quantiq-dev
 ```
 
 ```python
@@ -143,7 +143,7 @@ result = qc.run(shots=1000)
 ### Install from PyPI
 
 ```bash
-pip install quantiq
+pip install quantiq-dev
 ```
 
 ### Install from Source
