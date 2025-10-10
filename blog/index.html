@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quantIQ Blog - Quantum Computing Insights</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .header {
+            border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            text-decoration: none;
+        }
+        
+        .logo {
+            height: 40px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 100%;
+            width: auto;
+        }
+        
+        .logo-divider {
+            width: 1px;
+            height: 30px;
+            background: rgba(168, 85, 247, 0.3);
+            margin: 0 8px;
+        }
+        
+        .logo-text h1 {
+            font-size: 20px;
+            color: #a78bfa;
+            font-weight: 600;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: #a78bfa;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #ec4899;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 80px 32px 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 52px;
+            color: #fff;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: #a78bfa;
+            margin-bottom: 40px;
+        }
+        
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 16px 50px 16px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .search-box input::placeholder {
+            color: rgba(167, 139, 250, 0.5);
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: rgba(168, 85, 247, 0.6);
+            box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
+        }
+        
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 32px 80px;
+        }
+        
+        .featured {
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #a855f7, #ec4899);
+        }
+        
+        .featured-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .featured h3 {
+            font-size: 36px;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        
+        .featured h3 a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .featured h3 a:hover {
+            color: #a855f7;
+        }
+        
+        .featured p {
+            font-size: 18px;
+            color: #cbd5e1;
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .section-header h2 {
+            font-size: 32px;
+            color: #fff;
+        }
+        
+        .categories {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .category-pill {
+            padding: 8px 16px;
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 20px;
+            color: #a78bfa;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .category-pill:hover,
+        .category-pill.active {
+            background: rgba(168, 85, 247, 0.2);
+            border-color: rgba(168, 85, 247, 0.5);
+            color: #fff;
+        }
+        
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 32px;
+            margin-bottom: 60px;
+        }
+        
+        .post-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .post-card.hidden {
+            display: none;
+        }
+        
+        .post-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(168, 85, 247, 0.5);
+            box-shadow: 0 12px 24px rgba(168, 85, 247, 0.2);
+        }
+        
+        .post-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .post-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 14px;
+            color: #a78bfa;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .post-category {
+            display: inline-block;
+            background: rgba(168, 85, 247, 0.2);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .post-card h3 {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        
+        .post-card h3 a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        .post-card p {
+            color: #cbd5e1;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .read-more {
+            color: #a855f7;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s;
+        }
+        
+        .read-more:hover {
+            gap: 12px;
+            color: #ec4899;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #a78bfa;
+        }
+        
+        .no-results.hidden {
+            display: none;
+        }
+        
+        .newsletter {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(236, 72, 153, 0.15));
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 16px;
+            padding: 48px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .newsletter h2 {
+            font-size: 32px;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        
+        .newsletter p {
+            color: #a78bfa;
+            margin-bottom: 32px;
+            font-size: 18px;
+        }
+        
+        .newsletter-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 12px;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 14px 20px;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+        }
+        
+        .newsletter-form button {
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .newsletter-form button:hover:not(:disabled) {
+            transform: scale(1.05);
+        }
+        
+        .newsletter-form button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        
+        #formMessage {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .footer {
+            border-top: 1px solid rgba(168, 85, 247, 0.2);
+            padding: 40px 32px;
+            text-align: center;
+            color: #a78bfa;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            color: #a78bfa;
+            font-size: 24px;
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            color: #ec4899;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 36px; }
+            .posts-grid { grid-template-columns: 1fr; }
+            .newsletter-form { flex-direction: column; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <a href="https://quantiq.dev" class="logo-section">
+                <div class="logo">
+                    <img src="assets/logo-horizontal.png" alt="quantIQ Logo">
+                </div>
+                <div class="logo-divider"></div>
+                <div class="logo-text">
+                    <h1>Blog</h1>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="https://quantiq.dev">Home</a>
+                <a href="https://docs.quantiq.dev">Docs</a>
+                <a href="https://github.com/tony-siqurity-ai/quantiq-web">GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero">
+        <h2>Learn Quantum Computing</h2>
+        <p>Tutorials, insights, and updates from the quantIQ team</p>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search articles...">
+            <span class="search-icon">&#128269;</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="featured">
+            <span class="featured-badge">&#10024; FEATURED</span>
+            <h3><a href="posts/introducing-quantiq-v1-1-0.html">Introducing quantIQ v1.1.0: Complete Quantum Simulator</a></h3>
+            <p>
+                Today we're launching quantIQ v1.1.0 with a full-featured quantum simulator. 
+                Learn about the new features, what makes quantIQ different, and what's coming next.
+            </p>
+            <div class="post-meta">
+                <span>&#128197; October 9, 2025</span>
+                <span>&#128100; Tony Rossi</span>
+                <span>&#9201; 5 min read</span>
+            </div>
+            <a href="posts/introducing-quantiq-v1-1-0.html" class="read-more">Read Full Post &rarr;</a>
+        </div>
+
+        <div class="section-header">
+            <h2>Latest Posts</h2>
+            <div class="categories">
+                <span class="category-pill active" data-category="all">All</span>
+                <span class="category-pill" data-category="tutorial">Tutorials</span>
+                <span class="category-pill" data-category="technical">Technical</span>
+                <span class="category-pill" data-category="algorithms">Algorithms</span>
+                <span class="category-pill" data-category="community">Community</span>
+                <span class="category-pill" data-category="product">Product</span>
+            </div>
+        </div>
+
+        <div class="posts-grid" id="postsGrid">
+            <article class="post-card" data-category="tutorial" data-title="Your First Quantum Circuit in 5 Minutes" data-description="A beginner-friendly guide to creating your first quantum circuit. No quantum physics degree required!">
+                <span class="post-icon">&#128218;</span>
+                <span class="post-category">Tutorial</span>
+                <div class="post-meta">
+                    <span>Oct 10, 2025</span>
+                    <span>8 min read</span>
+                </div>
+                <h3><a href="#">Your First Quantum Circuit in 5 Minutes</a></h3>
+                <p>A beginner-friendly guide to creating your first quantum circuit. No quantum physics degree required!</p>
+                <a href="#" class="read-more">Read More &rarr;</a>
+            </article>
+
+            <article class="post-card" data-category="technical" data-title="How We Built a Quantum Simulator in Python" data-description="Deep dive into the architecture and optimization techniques behind quantIQ's simulator.">
+                <span class="post-icon">&#9881;</span>
+                <span class="post-category">Technical</span>
+                <div class="post-meta">
+                    <span>Oct 11, 2025</span>
+                    <span>12 min read</span>
+                </div>
+                <h3><a href="#">How We Built a Quantum Simulator in Python</a></h3>
+                <p>Deep dive into the architecture and optimization techniques behind quantIQ's simulator.</p>
+                <a href="#" class="read-more">Read More &rarr;</a>
+            </article>
+
+            <article class="post-card" data-category="algorithms" data-title="Quantum Algorithms Explained: Grover's Search" data-description="Understand how Grover's algorithm achieves quadratic speedup for database search.">
+                <span class="post-icon">&#128269;</span>
+                <span class="post-category">Algorithms</span>
+                <div class="post-meta">
+                    <span>Oct 12, 2025</span>
+                    <span>10 min read</span>
+                </div>
+                <h3><a href="#">Quantum Algorithms Explained: Grover's Search</a></h3>
+                <p>Understand how Grover's algorithm achieves quadratic speedup for database search.</p>
+                <a href="#" class="read-more">Read More &rarr;</a>
+            </article>
+
+            <article class="post-card" data-category="community" data-title="Community Spotlight: Amazing Circuits" data-description="Featuring incredible quantum circuits created by the quantIQ community this week.">
+                <span class="post-icon">&#10024;</span>
+                <span class="post-category">Community</span>
+                <div class="post-meta">
+                    <span>Oct 13, 2025</span>
+                    <span>7 min read</span>
+                </div>
+                <h3><a href="#">Community Spotlight: Amazing Circuits</a></h3>
+                <p>Featuring incredible quantum circuits created by the quantIQ community this week.</p>
+                <a href="#" class="read-more">Read More &rarr;</a>
+            </article>
+
+            <article class="post-card" data-category="tutorial" data-title="Quantum Entanglement for Beginners" data-description="Learn about quantum entanglement and create your first Bell state with quantIQ.">
+                <span class="post-icon">&#127891;</span>
+                <span class="post-category">Tutorial</span>
+                <div class="post-meta">
+                    <span>Oct 14, 2025</span>
+                    <span>6 min read</span>
+                </div>
+                <h3><a href="#">Quantum Entanglement for Beginners</a></h3>
+                <p>Learn about quantum entanglement and create your first Bell state with quantIQ.</p>
+                <a href="#" class="read-more">Read More &rarr;</a>
+            </article>
+
+            <article class="post-card" data-category="product" data-title="Product Roadmap: Q4 2025" data-description="What's coming next for quantIQ: cloud execution, hardware backends, and more.">
+                <span class="post-icon">&#128640;</span>
+                <span class="post-category">Product</span>
+                <div class="post-meta">
+                    <span>Oct 15, 2025</span>
+                    <span>4 min read</span>
+                </div>
+                <h3><a href="#">Product Roadmap: Q4 2025</a></h3>
+                <p>What's coming next for quantIQ: cloud execution, hardware backends, and more.</p>
+                <a href="#" class="read-more">Read More &rarr;</a>
+            </article>
+        </div>
+
+        <div class="no-results hidden" id="noResults">
+            <h3>No posts found</h3>
+            <p>Try adjusting your search or filter to find what you're looking for.</p>
+        </div>
+
+        <div class="newsletter">
+            <h2>Stay Updated</h2>
+            <p>Get weekly quantum computing insights delivered to your inbox</p>
+            <form id="newsletterForm" class="newsletter-form">
+                <input type="email" name="email" id="newsletterEmail" placeholder="your@email.com" required>
+                <button type="submit" id="submitBtn">Subscribe</button>
+            </form>
+            <div id="formMessage" style="display: none;"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="social-links">
+            <a href="https://twitter.com/quantiqdev" title="Twitter">&#128038;</a>
+            <a href="https://github.com/tony-siqurity-ai/quantiq-web" title="GitHub">&#128187;</a>
+            <a href="https://github.com/tony-siqurity-ai/quantiq-web/discussions" title="Discussions">&#128172;</a>
+        </div>
+        <p>&copy; 2025 quantIQ. Built with quantum love. &#9883;</p>
+    </div>
+
+    <script>
+        // Search and filter functionality
+        const searchInput = document.getElementById('searchInput');
+        const postsGrid = document.getElementById('postsGrid');
+        const noResults = document.getElementById('noResults');
+        const categoryPills = document.querySelectorAll('.category-pill');
+        const postCards = document.querySelectorAll('.post-card');
+
+        let currentCategory = 'all';
+        let currentSearch = '';
+
+        searchInput.addEventListener('input', (e) => {
+            currentSearch = e.target.value.toLowerCase();
+            filterPosts();
+        });
+
+        categoryPills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                categoryPills.forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+                currentCategory = pill.getAttribute('data-category');
+                filterPosts();
+            });
+        });
+
+        function filterPosts() {
+            let visibleCount = 0;
+
+            postCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                const title = card.getAttribute('data-title').toLowerCase();
+                const description = card.getAttribute('data-description').toLowerCase();
+
+                const categoryMatch = currentCategory === 'all' || category === currentCategory;
+                const searchMatch = currentSearch === '' || 
+                                  title.includes(currentSearch) || 
+                                  description.includes(currentSearch);
+
+                if (categoryMatch && searchMatch) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            if (visibleCount === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+
+        // Newsletter form submission
+        document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const message = document.getElementById('formMessage');
+            const email = document.getElementById('newsletterEmail').value;
+            
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Subscribing...';
+            message.style.display = 'none';
+            
+            try {
+                const response = await fetch('https://formspree.io/f/mnnggjwr', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        _subject: 'New quantIQ Blog Subscriber'
+                    })
+                });
+                
+                if (response.ok) {
+                    message.style.display = 'block';
+                    message.style.color = '#10b981';
+                    message.textContent = '✓ Success! Check your email to confirm your subscription.';
+                    document.getElementById('newsletterForm').reset();
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (error) {
+                message.style.display = 'block';
+                message.style.color = '#ef4444';
+                message.textContent = '✗ Something went wrong. Please try again.';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Subscribe';
+            }
+        });
+    </script>
+</body>
+</html>
