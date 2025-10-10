@@ -1,7 +1,7 @@
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tony-siqurity-ai/quantiq-brand/main/logos/logo-horizontal-white.png">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/tony-siqurity-ai/quantiq-brand/main/logos/logo-horizontal.png">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/tony-siqurity-ai/quantiq/main/brand/logos/logo-horizontal-white.png">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/tony-siqurity-ai/quantiq/main/brand/logos/logo-horizontal.png">
     <img src="https://raw.githubusercontent.com/tony-siqurity-ai/quantiq-brand/main/logos/logo-horizontal.png" alt="quantIQ" width="400">
   </picture>
 
