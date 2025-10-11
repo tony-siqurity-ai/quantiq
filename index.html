@@ -100,7 +100,7 @@
         }
 
         .hero {
-            background: linear-gradient(135deg, #7088ec 0%, #8055ab 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             min-height: 100vh;
             display: flex;
@@ -111,97 +111,39 @@
             padding-top: 80px;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 40%, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 100%),
-                        radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
-            background-size: 100px 100px;
-            animation: float 20s linear infinite;
-            z-index: 0;
+         .hero::before {
+         content: '';
+         position: absolute;
+         inset: 0;
+         background: rgba(0, 0, 0, 0.15);
+         z-index: 1;
         }
 
-        @keyframes float {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-50px, -50px); }
+     @keyframes flowingDots {
+        0%, 100% {
+             background-position: 0% 0%;
+             transform: scale(1);
+         }
+         25% {
+             background-position: 30px -20px;
+             transform: scale(1.05);
+         }
+         50% {
+             background-position: -20px 30px;
+             transform: scale(0.95);
+         }
+         75% {
+             background-position: 20px 20px;
+             transform: scale(1.02);
+         }
         }
 
-        .quantum-particles {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            z-index: 10;
-        }
-
-        .particle {
-            position: absolute;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            filter: blur(1px);
-        }
-
-        .particle-1 {
-            background: radial-gradient(circle, rgba(217, 70, 239, 1) 0%, transparent 70%);
-            top: 20%;
-            left: 15%;
-            animation: float1 8s ease-in-out infinite;
-            box-shadow: 0 0 40px rgba(217, 70, 239, 0.8);
-        }
-
-        .particle-2 {
-            background: radial-gradient(circle, rgba(6, 182, 212, 1) 0%, transparent 70%);
-            top: 60%;
-            right: 20%;
-            animation: float2 10s ease-in-out infinite;
-            box-shadow: 0 0 40px rgba(6, 182, 212, 0.8);
-        }
-
-        .particle-3 {
-            background: radial-gradient(circle, rgba(139, 92, 246, 1) 0%, transparent 70%);
-            top: 40%;
-            left: 50%;
-            animation: float3 12s ease-in-out infinite;
-            box-shadow: 0 0 50px rgba(139, 92, 246, 0.9);
-        }
-
-        .particle-4 {
-            background: radial-gradient(circle, rgba(217, 70, 239, 0.9) 0%, transparent 70%);
-            bottom: 25%;
-            left: 30%;
-            animation: float1 9s ease-in-out infinite reverse;
-            box-shadow: 0 0 40px rgba(217, 70, 239, 0.7);
-        }
-
-        .particle-5 {
-            background: radial-gradient(circle, rgba(6, 182, 212, 0.9) 0%, transparent 70%);
-            top: 35%;
-            right: 30%;
-            animation: float2 11s ease-in-out infinite reverse;
-            box-shadow: 0 0 40px rgba(6, 182, 212, 0.7);
-        }
-
-        @keyframes float1 {
-            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.7; }
-            50% { transform: translate(120px, -100px) scale(1.3); opacity: 1; }
-        }
-
-        @keyframes float2 {
-            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.7; }
-            50% { transform: translate(-100px, 120px) scale(1.4); opacity: 1; }
-        }
-
-        @keyframes float3 {
-            0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 0.7; }
-            50% { transform: translate(80px, 80px) scale(1.6) rotate(180deg); opacity: 1; }
-        }
 
         .hero .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
             text-align: center;
-            max-width: 900px;
-            padding: 60px 20px;
             position: relative;
             z-index: 5;
         }
@@ -216,15 +158,14 @@
 
         @keyframes float-logo {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+            50% { transform: translateY(-20px); }
         }
 
         .hero h1 {
-            font-size: 5rem;
+            font-size: 4rem;
             font-weight: 700;
-            margin-bottom: 25px;
-            letter-spacing: -0.02em;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+            line-height: 1.2;
         }
 
         .hero h1 .quant {
@@ -239,16 +180,15 @@
         }
 
         .hero .tagline {
-            font-size: 1.6rem;
-            margin-bottom: 15px;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
             opacity: 0.95;
-            font-weight: 500;
         }
 
         .hero .subline {
-            font-size: 1.15rem;
-            margin-bottom: 45px;
-            opacity: 0.85;
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 40px;
         }
 
         .cta-buttons {
@@ -256,80 +196,169 @@
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 50px;
         }
 
         .btn {
-            padding: 18px 45px;
+            padding: 16px 40px;
             font-size: 1.1rem;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s ease;
-            font-family: 'Space Grotesk', sans-serif;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s;
             display: inline-block;
         }
 
         .btn-primary {
             background: white;
-            color: #667eea;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            color: var(--primary-purple);
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255,255,255,0.1);
             color: white;
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(10px);
+            border: 2px solid white;
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-3px);
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
         }
 
-        .install-code {
-            padding: 20px 35px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            display: inline-block;
-            font-family: 'Courier New', monospace;
-            font-size: 1.1rem;
-            color: #a8dadc;
+        /* Quantum Particles */
+        .quantum-particles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 10;
         }
 
-        .features {
+        .particle {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            filter: blur(1px);
+        }
+
+        .particle-1 {
+            background: radial-gradient(circle, rgba(217, 70, 239, 1) 0%, rgba(217, 70, 239, 0) 70%);
+            top: 20%;
+            left: 15%;
+            animation: float1 8s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(217, 70, 239, 0.8);
+        }
+
+        .particle-2 {
+            background: radial-gradient(circle, rgba(6, 182, 212, 1) 0%, rgba(6, 182, 212, 0) 70%);
+            top: 60%;
+            right: 20%;
+            animation: float2 10s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.8);
+        }
+
+        .particle-3 {
+            background: radial-gradient(circle, rgba(139, 92, 246, 1) 0%, rgba(139, 92, 246, 0) 70%);
+            top: 40%;
+            left: 50%;
+            animation: float3 12s ease-in-out infinite;
+            box-shadow: 0 0 25px rgba(139, 92, 246, 0.9);
+        }
+
+        .particle-4 {
+            background: radial-gradient(circle, rgba(217, 70, 239, 0.9) 0%, rgba(217, 70, 239, 0) 70%);
+            bottom: 25%;
+            left: 30%;
+            animation: float1 9s ease-in-out infinite reverse;
+            box-shadow: 0 0 18px rgba(217, 70, 239, 0.7);
+        }
+
+        .particle-5 {
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.9) 0%, rgba(6, 182, 212, 0) 70%);
+            top: 35%;
+            right: 30%;
+            animation: float2 11s ease-in-out infinite reverse;
+            box-shadow: 0 0 18px rgba(6, 182, 212, 0.7);
+        }
+
+        .particle-6 {
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.8) 0%, rgba(139, 92, 246, 0) 70%);
+            top: 70%;
+            left: 60%;
+            animation: float3 13s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.7);
+        }
+
+        .particle-7 {
+            background: radial-gradient(circle, rgba(217, 70, 239, 0.7) 0%, rgba(217, 70, 239, 0) 70%);
+            top: 15%;
+            right: 35%;
+            animation: float1 10s ease-in-out infinite reverse;
+            box-shadow: 0 0 18px rgba(217, 70, 239, 0.6);
+        }
+
+        .particle-8 {
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.8) 0%, rgba(6, 182, 212, 0) 70%);
+            bottom: 35%;
+            right: 15%;
+            animation: float2 9s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.7);
+        }
+
+        @keyframes float1 {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translate(150px, -130px) scale(1.3);
+                opacity: 1;
+            }
+        }
+
+        @keyframes float2 {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translate(-130px, 150px) scale(1.4);
+                opacity: 1;
+            }
+        }
+
+        @keyframes float3 {
+            0%, 100% {
+                transform: translate(0, 0) scale(1) rotate(0deg);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translate(100px, 100px) scale(1.6) rotate(180deg);
+                opacity: 1;
+            }
+        }
+
+        section {
             padding: 100px 20px;
-            background: white;
         }
 
-        .features .container {
+        .container {
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .section-header {
-            text-align: center;
+        h2 {
+            font-size: 2.5rem;
             margin-bottom: 60px;
+            text-align: center;
         }
 
-        .section-header h2 {
-            font-size: 3rem;
-            color: var(--dark);
-            margin-bottom: 15px;
-        }
-
-        .section-header p {
-            font-size: 1.2rem;
-            color: var(--gray);
+        .features {
+            background: var(--light);
         }
 
         .features-grid {
@@ -339,253 +368,130 @@
         }
 
         .feature-card {
+            background: white;
             padding: 40px;
-            border-radius: 20px;
-            background: var(--light);
-            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
         }
 
         .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
         }
 
         .feature-card h3 {
             font-size: 1.5rem;
             margin-bottom: 15px;
-            color: var(--dark);
+            color: var(--primary-purple);
         }
 
-        .feature-card p {
-            color: var(--gray);
-            line-height: 1.6;
-        }
-
-        .code-example {
-            padding: 100px 20px;
-            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
-        }
-
-        .code-example .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .code-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--dark);
-        }
-
-        .code-content p {
-            font-size: 1.1rem;
-            color: var(--gray);
-            margin-bottom: 30px;
-            line-height: 1.7;
-        }
-
-        .code-block {
-            background: #1E293B;
-            color: #E2E8F0;
-            padding: 30px;
-            border-radius: 15px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            overflow-x: auto;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-
-        .code-block .comment { color: #64748B; }
-        .code-block .keyword { color: #C792EA; }
-        .code-block .function { color: #82AAFF; }
-        .code-block .string { color: #C3E88D; }
-
-        .stats {
-            padding: 80px 20px;
+        .code-section {
             background: var(--dark);
             color: white;
         }
 
-        .stats .container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .code-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 40px;
+            align-items: center;
+        }
+
+        .code-example {
+            background: #0F172A;
+            padding: 30px;
+            border-radius: 12px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            overflow-x: auto;
+        }
+
+        .stats {
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-cyan) 100%);
+            color: white;
             text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
         }
 
         .stat-item h3 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 10px;
-            background: linear-gradient(135deg, var(--primary-magenta), var(--primary-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-item p {
-            font-size: 1.1rem;
-            opacity: 0.8;
         }
 
         .waitlist {
-            padding: 100px 20px;
-            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
-            text-align: center;
+            background: var(--light);
         }
 
-        .waitlist .container {
-            max-width: 800px;
+        .waitlist-form {
+            max-width: 600px;
             margin: 0 auto;
-        }
-
-        .waitlist h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--dark);
-        }
-
-        .waitlist .lead {
-            font-size: 1.3rem;
-            color: var(--gray);
-            margin-bottom: 40px;
-        }
-
-        .features-preview {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin: 30px 0 50px;
-        }
-
-        .feature-pill {
-            background: white;
-            padding: 12px 24px;
-            border-radius: 50px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            font-weight: 500;
-            color: var(--dark);
-        }
-
-        .form-group {
             display: flex;
             gap: 10px;
-            justify-content: center;
-            max-width: 500px;
-            margin: 0 auto;
         }
 
-        #waitlist-form input[type="email"] {
+        .waitlist-form input {
             flex: 1;
-            padding: 18px 25px;
-            border: 2px solid #e2e8f0;
-            border-radius: 50px;
+            padding: 16px;
             font-size: 1rem;
-            font-family: 'Space Grotesk', sans-serif;
-            transition: border-color 0.3s;
+            border: 2px solid #E2E8F0;
+            border-radius: 8px;
         }
 
-        #waitlist-form input[type="email"]:focus {
-            outline: none;
-            border-color: var(--primary-purple);
-        }
-
-        #waitlist-form button {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+        .waitlist-form button {
+            padding: 16px 40px;
+            background: var(--primary-purple);
             color: white;
             border: none;
-            padding: 18px 40px;
-            border-radius: 50px;
+            border-radius: 8px;
+            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1rem;
+            transition: all 0.3s;
         }
 
-        #waitlist-form button:hover {
+        .waitlist-form button:hover {
+            background: var(--primary-magenta);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-        }
-
-        #waitlist-form button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        .form-status {
-            margin-top: 20px;
-            font-size: 1rem;
-            min-height: 24px;
-        }
-
-        .form-status.success {
-            color: #059669;
-            font-weight: 600;
-        }
-
-        .form-status.error {
-            color: #DC2626;
         }
 
         footer {
-            padding: 60px 20px 30px;
-            background: #0F172A;
+            background: var(--dark);
             color: white;
-        }
-
-        footer .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 60px 20px 30px;
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
             margin-bottom: 40px;
         }
 
-        .footer-brand h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        .footer-brand p {
-            color: #94A3B8;
-            line-height: 1.6;
-        }
-
-        .footer-links h4 {
+        .footer-section h3 {
             margin-bottom: 20px;
-            font-size: 1.1rem;
         }
 
-        .footer-links ul {
+        .footer-section ul {
             list-style: none;
         }
 
-        .footer-links a {
-            color: #94A3B8;
-            text-decoration: none;
-            display: block;
+        .footer-section ul li {
             margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: var(--gray);
+            text-decoration: none;
             transition: color 0.3s;
         }
 
-        .footer-links a:hover {
+        .footer-section a:hover {
             color: white;
         }
 
@@ -593,18 +499,15 @@
             text-align: center;
             padding-top: 30px;
             border-top: 1px solid #334155;
-            color: #64748B;
+            color: var(--gray);
         }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 3rem; }
             .hero-logo { width: 150px; height: 150px; }
-            .section-header h2 { font-size: 2rem; }
-            .code-example .container { grid-template-columns: 1fr; }
-            .footer-content { grid-template-columns: 1fr; }
+            .code-container { grid-template-columns: 1fr; }
+            .cta-buttons { flex-direction: column; }
             .nav-links { display: none; }
-            .form-group { flex-direction: column; }
-            #waitlist-form button { width: 100%; }
         }
     </style>
 </head>
@@ -612,13 +515,14 @@
     <nav>
         <div class="container">
             <a href="/" class="nav-logo">
-                <img src="brand/icons/icon-64.png" alt="quantIQ">
+                <img src="icon-64.png" alt="quantIQ">
                 <span>quantIQ</span>
             </a>
             <ul class="nav-links">
-                <li><a href="https://quantiq.dev/docs">Docs</a></li>
-                <li><a href="https://github.com/tony-siqurity-ai/quantiq">GitHub</a></li>
-                <li><a href="https://pypi.org/project/quantiq-dev/">PyPI</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#code">Code</a></li>
+                <li><a href="https://quantiq.dev/docs" target="_blank">Docs</a></li>
+                <li><a href="#waitlist">Waitlist</a></li>
             </ul>
         </div>
     </nav>
@@ -630,6 +534,9 @@
             <div class="particle particle-3"></div>
             <div class="particle particle-4"></div>
             <div class="particle particle-5"></div>
+            <div class="particle particle-6"></div>
+            <div class="particle particle-7"></div>
+            <div class="particle particle-8"></div>
         </div>
         <div class="container">
             <img src="brand/icons/icon-512.png" alt="quantIQ Logo" class="hero-logo">
@@ -637,144 +544,136 @@
             <p class="tagline">Quantum circuits, simplified.</p>
             <p class="subline">Developer-first quantum computing platform for Python.</p>
             <div class="cta-buttons">
-                <a href="https://quantiq.dev/docs" class="btn btn-primary">Get Started</a>
-                <a href="https://github.com/tony-siqurity-ai/quantiq" class="btn btn-secondary">View on GitHub</a>
+                <a href="https://quantiq.dev/docs" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Get Started</a>
+                <a href="https://github.com/tony-siqurity-ai/quantiq" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">View on GitHub</a>
             </div>
-            <div class="install-code">pip install quantiq-dev</div>
         </div>
     </section>
 
-    <section class="features">
+    <section id="features" class="features">
         <div class="container">
-            <div class="section-header">
-                <h2>Why quantIQ?</h2>
-                <p>Built by developers, for developers</p>
-            </div>
+            <h2>Why quantIQ?</h2>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
-                    <h3>Simple API</h3>
-                    <p>Intuitive Python interface that feels natural. Build quantum circuits with the simplicity of writing regular Python code.</p>
+                    <h3>🎯 Simple & Intuitive</h3>
+                    <p>Build quantum circuits with clean, Pythonic syntax. No PhD required.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Fast Simulation</h3>
-                    <p>Optimized quantum circuit simulation engine. Get results quickly during development and testing.</p>
+                    <h3>⚡ High Performance</h3>
+                    <p>Optimized simulator with support for 20+ qubits on standard hardware.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Production Ready</h3>
-                    <p>Battle-tested code with comprehensive error handling. Ready for real-world quantum applications.</p>
+                    <h3>📊 Beautiful Visualization</h3>
+                    <p>Interactive circuit diagrams and state visualizations out of the box.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">📚</div>
-                    <h3>Great Documentation</h3>
-                    <p>Clear examples, tutorials, and API references. Get started in minutes, master in hours.</p>
+                    <h3>🔬 Educational</h3>
+                    <p>Perfect for learning quantum computing concepts with clear examples.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🔧</div>
-                    <h3>Extensible</h3>
-                    <p>Easily add custom gates and operations. Build exactly what your quantum application needs.</p>
+                    <h3>🚀 Production Ready</h3>
+                    <p>Well-tested, documented, and ready for real quantum applications.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🌐</div>
-                    <h3>Open Source</h3>
-                    <p>MIT licensed and community-driven. Contribute, customize, and use freely in any project.</p>
+                    <h3>🌐 Open Source</h3>
+                    <p>MIT licensed. Community-driven development on GitHub.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="code-example">
+    <section id="code" class="code-section">
         <div class="container">
-            <div class="code-content">
-                <h2>Get Started in Seconds</h2>
-                <p>Create your first quantum circuit with just a few lines of code. No complex setup, no steep learning curve.</p>
-                <a href="https://quantiq.dev/docs" class="btn btn-primary">View Full Documentation →</a>
+            <h2 style="color: white;">Clean, Powerful Code</h2>
+            <div class="code-container">
+                <div>
+                    <h3 style="margin-bottom: 20px;">Create Entanglement in 3 Lines</h3>
+                    <div class="code-example">
+<span style="color: #8B5CF6;">from</span> quantiq <span style="color: #8B5CF6;">import</span> QuantumCircuit
+
+circuit = QuantumCircuit(<span style="color: #D946EF;">2</span>)
+circuit.h(<span style="color: #D946EF;">0</span>)
+circuit.cx(<span style="color: #D946EF;">0</span>, <span style="color: #D946EF;">1</span>)
+result = circuit.measure()
+                    </div>
+                </div>
+                <div>
+                    <h3 style="margin-bottom: 20px;">Visualize Results</h3>
+                    <p style="opacity: 0.8;">Instantly see your quantum states with built-in visualization tools. Beautiful plots for probability distributions, state vectors, and Bloch spheres.</p>
+                </div>
             </div>
-            <div class="code-block"><span class="keyword">from</span> quantiq <span class="keyword">import</span> QuantumCircuit
-
-<span class="comment"># Create a Bell state</span>
-qc = <span class="function">QuantumCircuit</span>(<span class="string">2</span>)
-qc.<span class="function">h</span>(<span class="string">0</span>)
-qc.<span class="function">cx</span>(<span class="string">0</span>, <span class="string">1</span>)
-
-<span class="comment"># Run the circuit</span>
-result = qc.<span class="function">run</span>(shots=<span class="string">1000</span>)
-<span class="function">print</span>(result)</div>
         </div>
     </section>
 
     <section class="stats">
         <div class="container">
-            <div class="stat-item">
-                <h3>1.2.2</h3>
-                <p>Latest Version</p>
-            </div>
-            <div class="stat-item">
-                <h3>MIT</h3>
-                <p>Open Source License</p>
-            </div>
-            <div class="stat-item">
-                <h3>Python 3.11+</h3>
-                <p>Modern Python</p>
+            <h2>By the Numbers</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>20+</h3>
+                    <p>Quantum Gates</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1000+</h3>
+                    <p>GitHub Stars</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Contributors</p>
+                </div>
+                <div class="stat-item">
+                    <h3>MIT</h3>
+                    <p>Open Source</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="waitlist" id="waitlist">
+    <section id="waitlist" class="waitlist">
         <div class="container">
             <h2>☁️ quantIQ Cloud API - Coming Q2 2025</h2>
-            <p class="lead">Run quantum circuits on real hardware. No infrastructure needed.</p>
-            <div class="features-preview">
-                <div class="feature-pill">✅ REST API</div>
-                <div class="feature-pill">✅ Multiple backends</div>
-                <div class="feature-pill">✅ Real-time monitoring</div>
-                <div class="feature-pill">✅ Pay-as-you-go</div>
-            </div>
-            <form id="waitlist-form" action="https://formspree.io/f/manppqqq" method="POST">
-                <div class="form-group">
-                    <input type="email" name="email" placeholder="your@email.com" required>
-                    <button type="submit">Join Waitlist</button>
-                </div>
+            <p style="text-align: center; margin-bottom: 40px; font-size: 1.2rem; color: var(--gray);">
+                Run your quantum circuits on real quantum hardware. Join the waitlist for early access.
+            </p>
+            <form class="waitlist-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <input type="email" name="email" placeholder="Enter your email" required>
                 <input type="hidden" name="_subject" value="New quantIQ Waitlist Signup!">
-                <input type="hidden" name="_next" value="https://quantiq.dev/thanks.html">
-                <input type="text" name="_gotcha" style="display:none">
+                <button type="submit">Join Waitlist</button>
             </form>
-            <p class="form-status" id="form-status"></p>
         </div>
     </section>
 
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-brand">
+                <div class="footer-section">
                     <h3>quantIQ</h3>
-                    <p>Developer-first quantum computing platform. Build quantum applications without the complexity.</p>
+                    <p style="color: var(--gray);">Making quantum computing accessible to every developer.</p>
                 </div>
-                <div class="footer-links">
-                    <h4>Product</h4>
+                <div class="footer-section">
+                    <h3>Resources</h3>
                     <ul>
                         <li><a href="https://quantiq.dev/docs">Documentation</a></li>
-                        <li><a href="https://pypi.org/project/quantiq-dev/">PyPI</a></li>
-                        <li><a href="https://github.com/tony-siqurity-ai/quantiq/releases">Changelog</a></li>
-                        <li><a href="https://github.com/users/tony-siqurity-ai/projects/3">Roadmap</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Resources</h4>
-                    <ul>
+                        <li><a href="https://quantiq.dev/docs/tutorials">Tutorials</a></li>
+                        <li><a href="https://quantiq.dev/docs/api">API Reference</a></li>
                         <li><a href="https://github.com/tony-siqurity-ai/quantiq/tree/main/examples">Examples</a></li>
-                        <li><a href="https://quantiq.dev/docs">Tutorials</a></li>
-                        <li><a href="https://github.com/tony-siqurity-ai/quantiq">GitHub</a></li>
                     </ul>
                 </div>
-                <div class="footer-links">
-                    <h4>Community</h4>
+                <div class="footer-section">
+                    <h3>Community</h3>
                     <ul>
-                        <li><a href="https://github.com/tony-siqurity-ai/quantiq/discussions">Discussions</a></li>
-                        <li><a href="https://github.com/tony-siqurity-ai/quantiq/issues">Issues</a></li>
-                        <li><a href="https://github.com/tony-siqurity-ai/quantiq/blob/main/CONTRIBUTING.md">Contributing</a></li>
+                        <li><a href="https://github.com/tony-siqurity-ai/quantiq" target="_blank">GitHub</a></li>
+                        <li><a href="https://github.com/tony-siqurity-ai/quantiq/discussions" target="_blank">Discussions</a></li>
+                        <li><a href="https://github.com/tony-siqurity-ai/quantiq/issues" target="_blank">Issues</a></li>
+                        <li><a href="https://github.com/tony-siqurity-ai/quantiq/blob/main/CONTRIBUTING.md" target="_blank">Contributing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="https://github.com/tony-siqurity-ai/quantiq/blob/main/LICENSE">License (MIT)</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
@@ -783,48 +682,5 @@ result = qc.<span class="function">run</span>(shots=<span class="string">1000</s
             </div>
         </div>
     </footer>
-
-    <script>
-    const form = document.getElementById('waitlist-form');
-    const status = document.getElementById('form-status');
-
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const submitButton = form.querySelector('button[type="submit"]');
-        const originalText = submitButton.textContent;
-
-        submitButton.disabled = true;
-        submitButton.textContent = 'Joining...';
-        status.textContent = '';
-        status.className = 'form-status';
-
-        const formData = new FormData(form);
-
-        try {
-            const response = await fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            });
-
-            if (response.ok) {
-                status.textContent = '🎉 Success! Redirecting...';
-                status.className = 'form-status success';
-                form.reset();
-                setTimeout(() => {
-                    window.location.href = 'https://quantiq.dev/thanks.html';
-                }, 1500);
-            } else {
-                throw new Error('Form submission failed');
-            }
-        } catch (error) {
-            status.textContent = '❌ Oops! Something went wrong. Please try again.';
-            status.className = 'form-status error';
-        } finally {
-            submitButton.disabled = false;
-            submitButton.textContent = originalText;
-        }
-    });
-    </script>
 </body>
 </html>
