@@ -546,8 +546,99 @@
             .code-example .container { grid-template-columns: 1fr; }
             .footer-content { grid-template-columns: 1fr; }
             .nav-links { display: none; }
+<style>
         }
     </style>
+
+/* Quantum Particle System */
+.quantum-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    filter: blur(1px);
+}
+
+.particle-1 {
+    background: radial-gradient(circle, rgba(217, 70, 239, 1) 0%, rgba(217, 70, 239, 0) 70%);
+    top: 20%;
+    left: 15%;
+    animation: float1 8s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(217, 70, 239, 0.8);
+}
+
+.particle-2 {
+    background: radial-gradient(circle, rgba(6, 182, 212, 1) 0%, rgba(6, 182, 212, 0) 70%);
+    top: 60%;
+    right: 20%;
+    animation: float2 10s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.8);
+}
+
+.particle-3 {
+    background: radial-gradient(circle, rgba(139, 92, 246, 1) 0%, rgba(139, 92, 246, 0) 70%);
+    top: 40%;
+    left: 50%;
+    animation: float3 12s ease-in-out infinite;
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.9);
+}
+
+.particle-4 {
+    background: radial-gradient(circle, rgba(217, 70, 239, 0.9) 0%, rgba(217, 70, 239, 0) 70%);
+    bottom: 25%;
+    left: 30%;
+    animation: float1 9s ease-in-out infinite reverse;
+    box-shadow: 0 0 18px rgba(217, 70, 239, 0.7);
+}
+
+.particle-5 {
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.9) 0%, rgba(6, 182, 212, 0) 70%);
+    top: 35%;
+    right: 30%;
+    animation: float2 11s ease-in-out infinite reverse;
+    box-shadow: 0 0 18px rgba(6, 182, 212, 0.7);
+}
+
+@keyframes float1 {
+    0%, 100% { 
+        transform: translate(0, 0) scale(1); 
+        opacity: 0.7; 
+    }
+    50% { 
+        transform: translate(120px, -100px) scale(1.3); 
+        opacity: 1; 
+    }
+}
+
+@keyframes float2 {
+    0%, 100% { 
+        transform: translate(0, 0) scale(1); 
+        opacity: 0.7; 
+    }
+    50% { 
+        transform: translate(-100px, 120px) scale(1.4); 
+        opacity: 1; 
+    }
+}
+
+@keyframes float3 {
+    0%, 100% { 
+        transform: translate(0, 0) scale(1) rotate(0deg); 
+        opacity: 0.7; 
+    }
+    50% { 
+        transform: translate(80px, 80px) scale(1.6) rotate(180deg); 
+        opacity: 1; 
+    }
+}
+</style>
 /* Quantum particle animation */
 .hero::after {
     content: '';
@@ -631,6 +722,28 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <div class="quantum-particles">
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-4"></div>
+            <div class="particle particle-5"></div>
+        </div>
+<!-- Add right after <section class="hero"> -->
+        <div class="quantum-particles">
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-4"></div>
+            <div class="particle particle-5"></div>
+        </div>
+<div class="quantum-particles">
+    <div class="particle particle-1"></div>
+    <div class="particle particle-2"></div>
+    <div class="particle particle-3"></div>
+    <div class="particle particle-4"></div>
+    <div class="particle particle-5"></div>
+</div>
         <div class="quantum-waves"></div>
         <div class="container">
             <img src="icon-4166.png" alt="quantIQ Logo" class="hero-logo">
@@ -891,6 +1004,95 @@ result = qc.<span class="function">run</span>(shots=<span class="string">1000</s
     }
 }
 </style>
+
+/* Quantum Particle System */
+.quantum-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    filter: blur(1px);
+}
+
+.particle-1 {
+    background: radial-gradient(circle, rgba(217, 70, 239, 1) 0%, rgba(217, 70, 239, 0) 70%);
+    top: 20%;
+    left: 15%;
+    animation: float1 8s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(217, 70, 239, 0.8);
+}
+
+.particle-2 {
+    background: radial-gradient(circle, rgba(6, 182, 212, 1) 0%, rgba(6, 182, 212, 0) 70%);
+    top: 60%;
+    right: 20%;
+    animation: float2 10s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.8);
+}
+
+.particle-3 {
+    background: radial-gradient(circle, rgba(139, 92, 246, 1) 0%, rgba(139, 92, 246, 0) 70%);
+    top: 40%;
+    left: 50%;
+    animation: float3 12s ease-in-out infinite;
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.9);
+}
+
+.particle-4 {
+    background: radial-gradient(circle, rgba(217, 70, 239, 0.9) 0%, rgba(217, 70, 239, 0) 70%);
+    bottom: 25%;
+    left: 30%;
+    animation: float1 9s ease-in-out infinite reverse;
+    box-shadow: 0 0 18px rgba(217, 70, 239, 0.7);
+}
+
+.particle-5 {
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.9) 0%, rgba(6, 182, 212, 0) 70%);
+    top: 35%;
+    right: 30%;
+    animation: float2 11s ease-in-out infinite reverse;
+    box-shadow: 0 0 18px rgba(6, 182, 212, 0.7);
+}
+
+@keyframes float1 {
+    0%, 100% { 
+        transform: translate(0, 0) scale(1); 
+        opacity: 0.7; 
+    }
+    50% { 
+        transform: translate(120px, -100px) scale(1.3); 
+        opacity: 1; 
+    }
+}
+
+@keyframes float2 {
+    0%, 100% { 
+        transform: translate(0, 0) scale(1); 
+        opacity: 0.7; 
+    }
+    50% { 
+        transform: translate(-100px, 120px) scale(1.4); 
+        opacity: 1; 
+    }
+}
+
+@keyframes float3 {
+    0%, 100% { 
+        transform: translate(0, 0) scale(1) rotate(0deg); 
+        opacity: 0.7; 
+    }
+    50% { 
+        transform: translate(80px, 80px) scale(1.6) rotate(180deg); 
+        opacity: 1; 
+    }
+}
 /* Quantum particle animation */
 .hero::after {
     content: '';
@@ -1066,6 +1268,95 @@ form.addEventListener('submit', async (e) => {
     50% { --x: 70%; --y: 60%; opacity: 0.8; }
 }
 </style>
+
+/* Quantum Particle System */
+.quantum-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    filter: blur(1px);
+}
+
+.particle-1 {
+    background: radial-gradient(circle, rgba(217, 70, 239, 1) 0%, rgba(217, 70, 239, 0) 70%);
+    top: 20%;
+    left: 15%;
+    animation: float1 8s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(217, 70, 239, 0.8);
+}
+
+.particle-2 {
+    background: radial-gradient(circle, rgba(6, 182, 212, 1) 0%, rgba(6, 182, 212, 0) 70%);
+    top: 60%;
+    right: 20%;
+    animation: float2 10s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.8);
+}
+
+.particle-3 {
+    background: radial-gradient(circle, rgba(139, 92, 246, 1) 0%, rgba(139, 92, 246, 0) 70%);
+    top: 40%;
+    left: 50%;
+    animation: float3 12s ease-in-out infinite;
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.9);
+}
+
+.particle-4 {
+    background: radial-gradient(circle, rgba(217, 70, 239, 0.9) 0%, rgba(217, 70, 239, 0) 70%);
+    bottom: 25%;
+    left: 30%;
+    animation: float1 9s ease-in-out infinite reverse;
+    box-shadow: 0 0 18px rgba(217, 70, 239, 0.7);
+}
+
+.particle-5 {
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.9) 0%, rgba(6, 182, 212, 0) 70%);
+    top: 35%;
+    right: 30%;
+    animation: float2 11s ease-in-out infinite reverse;
+    box-shadow: 0 0 18px rgba(6, 182, 212, 0.7);
+}
+
+@keyframes float1 {
+    0%, 100% { 
+        transform: translate(0, 0) scale(1); 
+        opacity: 0.7; 
+    }
+    50% { 
+        transform: translate(120px, -100px) scale(1.3); 
+        opacity: 1; 
+    }
+}
+
+@keyframes float2 {
+    0%, 100% { 
+        transform: translate(0, 0) scale(1); 
+        opacity: 0.7; 
+    }
+    50% { 
+        transform: translate(-100px, 120px) scale(1.4); 
+        opacity: 1; 
+    }
+}
+
+@keyframes float3 {
+    0%, 100% { 
+        transform: translate(0, 0) scale(1) rotate(0deg); 
+        opacity: 0.7; 
+    }
+    50% { 
+        transform: translate(80px, 80px) scale(1.6) rotate(180deg); 
+        opacity: 1; 
+    }
+}
 /* Quantum particle animation */
 .hero::after {
     content: '';
